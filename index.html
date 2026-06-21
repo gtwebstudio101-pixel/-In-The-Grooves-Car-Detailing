@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AUTOZEN | Car Detailing Services</title>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg-dark:      #121212;
+  --bg-darker:    #0d0d0d;
+  --bg-card:      #1c1c1c;
+  --red:          #e8392f;
+  --red-dark:     #c92f26;
+  --white:        #ffffff;
+  --text-muted:   #9a9a9a;
+  --text-light:   #cfcfcf;
+  --border-soft:  rgba(255,255,255,0.08);
+  --font-display: 'Saira Condensed', sans-serif;
+  --font-body:    'Inter', sans-serif;
+}
+*{box-sizing:border-box;}
+body{background:var(--bg-dark);color:var(--text-light);font-family:var(--font-body);overflow-x:hidden;}
+a{text-decoration:none;}
+h1,h2,h3,h4,h5,h6{font-family:var(--font-display);color:var(--white);text-transform:uppercase;letter-spacing:.5px;}
+.section-title{font-size:2.4rem;font-weight:800;line-height:1.15;margin-bottom:1rem;}
+.section-text{color:var(--text-muted);font-size:1rem;line-height:1.75;}
+.eyebrow{color:var(--red);font-weight:700;font-size:.8rem;letter-spacing:2px;text-transform:uppercase;display:flex;align-items:center;gap:8px;margin-bottom:.75rem;}
+
+.btn-cta{background:var(--red);color:var(--white);border:none;font-weight:600;padding:.8rem 1.8rem;border-radius:6px;text-transform:uppercase;font-size:.85rem;letter-spacing:.5px;transition:.25s;}
+.btn-cta:hover{background:var(--red-dark);color:var(--white);transform:translateY(-2px);}
+.btn-outline-cta{background:transparent;border:1px solid var(--border-soft);color:var(--white);font-weight:600;padding:.8rem 1.8rem;border-radius:6px;text-transform:uppercase;font-size:.85rem;letter-spacing:.5px;transition:.25s;}
+.btn-outline-cta:hover{background:rgba(255,255,255,0.08);color:var(--white);}
+
+/* REMOVED TOPBAR */
+
+.main-nav{background:var(--bg-dark);padding:1rem 0;border-bottom:1px solid var(--border-soft);}
+.logo{font-family:var(--font-display);font-weight:800;font-size:1.7rem;color:var(--white);text-transform:uppercase;letter-spacing:1px;}
+.logo span{color:var(--red);}
+.nav-link{color:var(--text-light) !important;font-weight:600;font-size:.92rem;padding:.5rem 1rem !important;text-transform:capitalize;transition:.2s;}
+.nav-link:hover,.nav-link.active{color:var(--red) !important;}
+
+/* HEADER PHONE ICON - VISIBLE OUTSIDE HAMBURGER MENU */
+.header-right{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.header-phone{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  color:var(--white);
+  font-weight:600;
+  font-size:.9rem;
+  transition:.2s;
+  padding:6px 12px;
+  border-radius:6px;
+  border:1px solid var(--border-soft);
+  flex-shrink:0;
+}
+.header-phone:hover{
+  border-color:var(--red);
+  color:var(--red);
+}
+.header-phone i{
+  color:var(--red);
+  font-size:1.1rem;
+}
+.header-phone .phone-number{
+  display:inline;
+}
+/* Mobile: show only icon, hide number and border */
+@media (max-width:991px){
+  .header-phone{
+    border:none;
+    padding:6px 8px;
+  }
+  .header-phone .phone-number{
+    display:none;
+  }
+  .header-phone i{
+    font-size:1.5rem;
+  }
+  .header-right .btn-cta{
+    display:none !important;
+  }
+}
+/* Desktop: show full number */
+@media (min-width:992px){
+  .header-phone .phone-number{
+    display:inline;
+  }
+}
+
+/* HERO */
+.hero{
+  position:relative;
+  padding:6rem 0 7rem;
+  background: 
+    radial-gradient(circle at 80% 20%, rgba(232,57,47,.12), transparent 45%),
+    url('https://github.com/gtwebstudio101-pixel/-In-The-Grooves-Car-Detailing/blob/main/car%20detailing%20website%20img/main%20hero%20bg%20img%20.png?raw=true') center/cover no-repeat;
+  overflow:hidden;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.55);
+  z-index:0;
+}
+.hero .container{
+  position:relative;
+  z-index:1;
+}
+.hero-title{font-size:3.8rem;font-weight:800;line-height:1.1;margin-bottom:1.25rem;}
+.hero-text{color:var(--text-light);font-size:1.1rem;max-width:520px;line-height:1.75;}
+.hero .btn-group{margin-top:1.5rem;}
+
+.feature-strip{background:var(--bg-darker);}
+.feature-strip .row{margin:0;}
+.feature-strip .col-md-3{padding:0;}
+.feature-box{background:var(--bg-card);padding:2rem 1.6rem;height:100%;border-right:1px solid var(--border-soft);transition:.25s;}
+.feature-box i{font-size:1.8rem;color:var(--red);margin-bottom:1rem;display:block;}
+.feature-box h6{font-size:1.05rem;margin-bottom:.6rem;}
+.feature-box p{color:var(--text-muted);font-size:.85rem;line-height:1.6;margin:0;}
+.feature-box.active-box{background:var(--red);}
+.feature-box.active-box i,.feature-box.active-box h6{color:var(--white);}
+.feature-box.active-box p{color:rgba(255,255,255,.85);}
+
+.section-about{padding:6rem 0;background:var(--bg-dark);}
+.about-img-grid{position:relative;display:grid;grid-template-columns:1.4fr 1fr;gap:1rem;}
+.about-img-grid img{width:100%;height:380px;object-fit:cover;border-radius:10px;}
+.audience-badge{position:absolute;top:-1.5rem;left:-1.5rem;background:var(--bg-card);border:1px solid var(--border-soft);padding:1rem 1.4rem;border-radius:10px;display:flex;flex-direction:column;}
+.audience-badge .num{color:var(--red);font-family:var(--font-display);font-weight:800;font-size:1.5rem;}
+.audience-badge .label{color:var(--text-muted);font-size:.78rem;}
+.check-list{list-style:none;padding:0;margin:0;}
+.check-list li{color:var(--text-light);font-size:.92rem;margin-bottom:.7rem;}
+.check-list li i{color:var(--red);margin-right:8px;}
+.exp-badge{background:var(--red);border-radius:10px;padding:1.5rem;display:flex;flex-direction:column;height:100%;justify-content:center;}
+.exp-badge .num{font-family:var(--font-display);font-weight:800;font-size:2.6rem;color:var(--white);line-height:1;}
+.exp-badge .label{color:rgba(255,255,255,.85);font-size:.85rem;margin-top:.4rem;}
+
+.stats-bar{background:var(--red);padding:2.5rem 0;}
+.stat-item{display:flex;flex-direction:column;align-items:center;border-right:1px solid rgba(255,255,255,.25);}
+.stat-item:last-child{border-right:none;}
+.stat-num{font-family:var(--font-display);font-weight:800;font-size:2.6rem;color:rgba(255,255,255,.35);line-height:1;}
+.stat-label{color:var(--white);font-weight:700;font-size:.85rem;text-transform:uppercase;margin-top:.4rem;letter-spacing:.5px;}
+
+.section-services-pricing{padding:6rem 0;background:var(--bg-dark);}
+.service-price-card{background:var(--bg-card);border:1px solid var(--border-soft);border-radius:14px;padding:2.4rem;height:100%;transition:.25s;text-align:center;}
+.service-price-card:hover{transform:translateY(-6px);border-color:var(--red);}
+.service-price-card i{font-size:2.6rem;color:var(--red);margin-bottom:1.2rem;display:block;}
+.service-price-card h5{font-size:1.4rem;margin-bottom:.5rem;}
+.service-price-card .price-tag{font-family:var(--font-display);font-weight:800;font-size:2.8rem;color:var(--red);margin:.5rem 0;}
+.service-price-card .price-tag .currency{font-size:1.2rem;vertical-align:top;}
+.service-price-card .price-tag .per{font-size:.9rem;color:var(--text-muted);font-family:var(--font-body);font-weight:400;text-transform:none;}
+.service-price-card p{color:var(--text-muted);font-size:.9rem;line-height:1.7;margin-bottom:1.2rem;}
+.service-price-card .feature-list{list-style:none;padding:0;margin:0 0 1.8rem 0;text-align:left;}
+.service-price-card .feature-list li{color:var(--text-light);font-size:.9rem;margin-bottom:.6rem;}
+.service-price-card .feature-list li i{color:var(--red);font-size:.8rem;margin-right:8px;display:inline;}
+.service-price-card.featured{background:var(--red);border-color:var(--red);transform:scale(1.04);}
+.service-price-card.featured h5,.service-price-card.featured i,.service-price-card.featured .price-tag{color:var(--white);}
+.service-price-card.featured .price-tag .per{color:rgba(255,255,255,.7);}
+.service-price-card.featured p{color:rgba(255,255,255,.85);}
+.service-price-card.featured .feature-list li{color:var(--white);}
+.service-price-card.featured .feature-list li i{color:var(--white);}
+.service-price-card.featured .btn-cta{background:var(--white);color:var(--red);}
+.service-price-card.featured .btn-cta:hover{background:rgba(255,255,255,.9);}
+.service-price-card .btn-cta{width:100%;}
+
+.section-testimonials{padding:6rem 0;background:var(--bg-darker);}
+.avatar-stack{display:flex;}
+.avatar-stack img{width:42px;height:42px;border-radius:50%;border:2px solid var(--bg-darker);object-fit:cover;margin-left:-12px;}
+.avatar-stack img:first-child{margin-left:0;}
+.avatar-more{width:42px;height:42px;border-radius:50%;background:var(--red);color:var(--white);display:flex;align-items:center;justify-content:center;margin-left:-12px;font-weight:700;border:2px solid var(--bg-darker);}
+.testimonial-card{background:var(--bg-card);border:1px solid var(--border-soft);border-radius:12px;padding:2rem;height:100%;}
+.stars i{color:var(--red);font-size:.85rem;margin-right:2px;}
+.quote-icon{color:var(--border-soft);font-size:1.6rem;}
+.testimonial-card p{color:var(--text-light);font-size:.92rem;line-height:1.7;margin:1.2rem 0 0;}
+.reviewer-avatar{width:46px;height:46px;border-radius:50%;object-fit:cover;}
+
+.section-location{
+  padding:5rem 0;
+  background:var(--bg-dark);
+  border-top:1px solid var(--border-soft);
+  border-bottom:1px solid var(--border-soft);
+}
+.section-location .map-container{
+  border-radius:14px;
+  overflow:hidden;
+  border:1px solid var(--border-soft);
+  height:320px;
+}
+.section-location .map-container iframe{
+  width:100%;
+  height:100%;
+  border:none;
+}
+.location-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  background:var(--red);
+  color:var(--white);
+  padding:.6rem 1.8rem;
+  border-radius:50px;
+  font-weight:700;
+  font-size:.9rem;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  margin-top:1rem;
+}
+.location-badge i{
+  font-size:1.2rem;
+}
+
+.section-quote{
+  position:relative;
+  padding:5rem 0;
+  background:linear-gradient(100deg, rgba(10,10,10,.92), rgba(20,20,20,.7)),url('https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+}
+.section-quote .quote-form input,
+.section-quote .quote-form select,
+.section-quote .quote-form textarea{
+  background:var(--bg-card);
+  border:1px solid var(--border-soft);
+  color:var(--white);
+  padding:.9rem 1.2rem;
+  border-radius:6px;
+  width:100%;
+  font-size:.9rem;
+  transition:.3s;
+}
+.section-quote .quote-form input::placeholder,
+.section-quote .quote-form textarea::placeholder{
+  color:var(--text-muted);
+}
+.section-quote .quote-form input:focus,
+.section-quote .quote-form select:focus,
+.section-quote .quote-form textarea:focus{
+  outline:2px solid var(--red);
+  border-color:var(--red);
+}
+.section-quote .quote-form select{
+  appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%239a9a9a' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10z'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:right 1rem center;
+  cursor:pointer;
+}
+.section-quote .quote-form select option{
+  background:var(--bg-card);
+  color:var(--white);
+}
+.text-light-50{color:rgba(255,255,255,.65) !important;}
+
+.site-footer{background:var(--bg-darker);border-top:1px solid var(--border-soft);}
+.footer-logo{display:inline-block;margin-bottom:1rem;}
+.footer-text{color:var(--text-muted);font-size:.9rem;line-height:1.7;max-width:320px;}
+.footer-heading{color:var(--white);font-size:1rem;font-weight:700;margin-bottom:1.2rem;position:relative;padding-bottom:.6rem;}
+.footer-heading::after{content:"";position:absolute;left:0;bottom:0;width:30px;height:2px;background:var(--red);}
+.footer-links{list-style:none;padding:0;margin:0;}
+.footer-links li{margin-bottom:.7rem;}
+.footer-links a{color:var(--text-muted);font-size:.88rem;transition:.2s;}
+.footer-links a i{color:var(--red);font-size:.7rem;margin-right:8px;}
+.footer-links a:hover{color:var(--white);}
+.footer-contact{list-style:none;padding:0;margin:0;}
+.footer-contact li{display:flex;gap:.8rem;margin-bottom:1.1rem;color:var(--text-muted);font-size:.85rem;}
+.footer-contact li i{color:var(--red);font-size:1.1rem;margin-top:3px;}
+.footer-contact a{color:var(--white);font-weight:600;}
+.footer-bottom{border-top:1px solid var(--border-soft);color:var(--text-muted);font-size:.85rem;}
+.footer-bottom a{color:var(--text-muted);}
+.footer-bottom a:hover{color:var(--red);}
+
+@media (max-width:991px){
+  .hero-title{font-size:2.6rem;}
+  .section-title{font-size:1.9rem;}
+  .audience-badge,.hero-float-card{position:static;margin-top:1rem;display:inline-flex;}
+  .feature-box{border-right:none;border-bottom:1px solid var(--border-soft);}
+  .service-price-card.featured{transform:scale(1);}
+  .section-location .map-container{height:240px;}
+}
+@media (max-width:767px){
+  .hero{padding:4rem 0;min-height:auto;}
+  .hero-title{font-size:2.2rem;}
+  .about-img-grid{grid-template-columns:1fr;}
+  .about-img-grid img{height:240px;}
+  .stat-item{border-right:none;margin-bottom:1.5rem;}
+  .section-location .map-container{height:200px;}
+}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--red);outline-offset:2px;}
+@media (prefers-reduced-motion: reduce){*{transition:none !important;}}
+</style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark main-nav sticky-top">
+  <div class="container">
+    <a class="navbar-brand logo" href="#home">AUTO<span>ZEN</span></a>
+    
+    <!-- RIGHT SIDE: Phone icon + Hamburger (always outside menu) -->
+    <div class="header-right">
+      <!-- PHONE ICON - Always visible, outside hamburger menu -->
+      <a href="tel:+18001234567" class="header-phone">
+        <i class="fa-solid fa-phone"></i>
+        <span class="phone-number">+1 (800) 123-4567</span>
+      </a>
+      
+      <!-- Get a Quote - Desktop only -->
+      <a href="#quote" class="btn btn-cta d-none d-lg-inline-block">Get a Quote</a>
+      
+      <!-- Hamburger Toggle -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    
+    <!-- Navigation Menu -->
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav mx-auto gap-1">
+        <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="#services-pricing">Services &amp; Pricing</a></li>
+        <li class="nav-item"><a class="nav-link" href="#testimonials">Reviews</a></li>
+        <li class="nav-item"><a class="nav-link" href="#location">Service Area</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact Us</a></li>
+      </ul>
+      <!-- Mobile Quote Button (inside menu) -->
+      <a href="#quote" class="btn btn-cta d-lg-none w-100 mt-2">Get a Quote</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="home">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-7">
+        <h1 class="hero-title">PRECISION MEETS<br>PERFECTION.</h1>
+        <p class="hero-text">AUTOZEN provides expert interior and exterior detailing to keep your vehicle spotless and protected. Trusted by car owners who demand the best.</p>
+        <div class="d-flex flex-wrap gap-3 mt-4 btn-group">
+          <a href="#services-pricing" class="btn btn-cta">View Services &amp; Pricing</a>
+          <a href="#quote" class="btn btn-outline-cta">Book Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="feature-strip">
+  <div class="container">
+    <div class="row g-0">
+      <div class="col-md-3 col-6">
+        <div class="feature-box active-box">
+          <i class="fa-solid fa-certificate"></i>
+          <h6>Certified Technicians</h6>
+          <p>Skilled experts handling every car with precision and care.</p>
+        </div>
+      </div>
+      <div class="col-md-3 col-6">
+        <div class="feature-box">
+          <i class="fa-solid fa-gear"></i>
+          <h6>Modern Equipment</h6>
+          <p>State-of-the-art tools for top-quality detailing results.</p>
+        </div>
+      </div>
+      <div class="col-md-3 col-6">
+        <div class="feature-box">
+          <i class="fa-solid fa-rocket"></i>
+          <h6>Fast Turnaround Time</h6>
+          <p>Quick, efficient service to get you back on the road.</p>
+        </div>
+      </div>
+      <div class="col-md-3 col-6">
+        <div class="feature-box">
+          <i class="fa-solid fa-truck"></i>
+          <h6>Fleet Services</h6>
+          <p>Reliable detailing for business fleets.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-about" id="about">
+  <div class="container">
+    <div class="row align-items-center gy-5">
+      <div class="col-lg-6">
+        <div class="about-img-grid">
+          <img src="https://github.com/gtwebstudio101-pixel/-In-The-Grooves-Car-Detailing/blob/main/car%20detailing%20website%20img/seconed%20img%20.jpg?raw=true" alt="Engine bay cleaning" style="grid-column: span 2; height: 380px; width: 100%;">
+          <div class="audience-badge">
+            <span class="num">4,600+</span>
+            <span class="label">Happy Customers</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <p class="eyebrow"><i class="fa-solid fa-car"></i> ABOUT AUTOZEN</p>
+        <h2 class="section-title">DRIVEN BY PASSION<br>POWERED BY PRECISION</h2>
+        <p class="section-text">Founded with a mission to elevate car care, AUTOZEN combines cutting-edge tools with skilled hands to deliver top-tier interior and exterior detailing for both personal and business vehicles.</p>
+        <p class="section-text">From restoring your car's interior to ensuring a flawless exterior shine, every job is handled with the utmost care, attention, and a customer-first approach.</p>
+        <div class="row mt-4 g-3">
+          <div class="col-5">
+            <div class="exp-badge">
+              <span class="num">25+</span>
+              <span class="label">Years of<br>Experience</span>
+            </div>
+          </div>
+          <div class="col-7">
+            <ul class="check-list">
+              <li><i class="fa-solid fa-circle-check"></i> Interior Deep Cleaning</li>
+              <li><i class="fa-solid fa-circle-check"></i> Exterior Polishing</li>
+              <li><i class="fa-solid fa-circle-check"></i> Paint Protection</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="stats-bar">
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-6 col-md-3 stat-item"><span class="stat-num">10K+</span><span class="stat-label">Vehicles<br>Detailed</span></div>
+      <div class="col-6 col-md-3 stat-item"><span class="stat-num">4.9★</span><span class="stat-label">Customer<br>Rating</span></div>
+      <div class="col-6 col-md-3 stat-item"><span class="stat-num">250+</span><span class="stat-label">Corporate<br>Clients</span></div>
+      <div class="col-6 col-md-3 stat-item"><span class="stat-num">98%</span><span class="stat-label">Client<br>Retention</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section-services-pricing" id="services-pricing">
+  <div class="container">
+    <div class="text-center mb-5">
+      <p class="eyebrow justify-content-center d-flex"><i class="fa-solid fa-car"></i> OUR SERVICES &amp; PRICING</p>
+      <h2 class="section-title">PREMIUM DETAILING — FLAT RATE PRICING</h2>
+      <p class="section-text mx-auto" style="max-width:600px;">Choose exactly what you need. Both services are $200 each, or get the complete package for $400.</p>
+    </div>
+    <div class="row g-4 justify-content-center">
+      
+      <div class="col-lg-4 col-md-6">
+        <div class="service-price-card">
+          <i class="fa-solid fa-couch"></i>
+          <h5>Interior Detailing</h5>
+          <div class="price-tag"><span class="currency">$</span>200</div>
+          <p>Complete interior restoration — spotless, fresh, and hygienic.</p>
+          <ul class="feature-list">
+            <li><i class="fa-solid fa-circle-check"></i> Deep Vacuum &amp; Steam Cleaning</li>
+            <li><i class="fa-solid fa-circle-check"></i> Upholstery &amp; Carpet Shampoo</li>
+            <li><i class="fa-solid fa-circle-check"></i> Dashboard &amp; Trim Conditioning</li>
+            <li><i class="fa-solid fa-circle-check"></i> Odor &amp; Bacteria Elimination</li>
+          </ul>
+          <a href="#quote" class="btn btn-cta">Book Interior Only</a>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6">
+        <div class="service-price-card featured">
+          <i class="fa-solid fa-star"></i>
+          <h5>Full Package</h5>
+          <div class="price-tag"><span class="currency">$</span>400</div>
+          <p>Interior + Exterior — the complete showroom treatment.</p>
+          <ul class="feature-list">
+            <li><i class="fa-solid fa-circle-check"></i> Interior Detailing (all services)</li>
+            <li><i class="fa-solid fa-circle-check"></i> Exterior Detailing (all services)</li>
+            <li><i class="fa-solid fa-circle-check"></i> Premium Wax &amp; Paint Sealant</li>
+            <li><i class="fa-solid fa-circle-check"></i> Full Interior &amp; Exterior Protection</li>
+          </ul>
+          <a href="#quote" class="btn btn-cta">Book Full Package</a>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6">
+        <div class="service-price-card">
+          <i class="fa-solid fa-spray-can-sparkles"></i>
+          <h5>Exterior Detailing</h5>
+          <div class="price-tag"><span class="currency">$</span>200</div>
+          <p>Showroom-quality exterior shine with long-lasting protection.</p>
+          <ul class="feature-list">
+            <li><i class="fa-solid fa-circle-check"></i> Premium Hand Wash &amp; Dry</li>
+            <li><i class="fa-solid fa-circle-check"></i> Clay Bar Decontamination</li>
+            <li><i class="fa-solid fa-circle-check"></i> High-Grade Wax &amp; Sealant</li>
+            <li><i class="fa-solid fa-circle-check"></i> Tire &amp; Trim Dressing</li>
+          </ul>
+          <a href="#quote" class="btn btn-cta">Book Exterior Only</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-testimonials" id="testimonials">
+  <div class="container">
+    <div class="row align-items-start mb-5 gy-3">
+      <div class="col-lg-7">
+        <p class="eyebrow"><i class="fa-solid fa-car"></i> CLIENT FEEDBACK</p>
+        <h2 class="section-title">TRUSTED BY BUSINESSES WHO PRIORITIZE QUALITY AUTO CARE</h2>
+      </div>
+      <div class="col-lg-5">
+        <div class="d-flex align-items-center gap-3">
+          <div class="avatar-stack">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="">
+            <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="">
+            <span class="avatar-more">+</span>
+          </div>
+          <div>
+            <strong>4.8k Best Reviews</strong>
+            <div class="text-muted small">For AUTOZEN</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="testimonial-card">
+          <div class="d-flex justify-content-between">
+            <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+            <i class="fa-solid fa-quote-right quote-icon"></i>
+          </div>
+          <p>"The interior detailing was incredible — my car feels brand new again. Super friendly and professional team."</p>
+          <div class="d-flex align-items-center gap-3 mt-3">
+            <img src="https://randomuser.me/api/portraits/women/68.jpg" class="reviewer-avatar" alt="">
+            <div><strong>Aisha Mohammed</strong><div class="text-muted small">Small Business Owner</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="testimonial-card">
+          <div class="d-flex justify-content-between">
+            <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+            <i class="fa-solid fa-quote-right quote-icon"></i>
+          </div>
+          <p>"Outstanding exterior detailing! My car has never looked this good. The wax and sealant job was flawless."</p>
+          <div class="d-flex align-items-center gap-3 mt-3">
+            <img src="https://randomuser.me/api/portraits/men/54.jpg" class="reviewer-avatar" alt="">
+            <div><strong>Michael Turner</strong><div class="text-muted small">Managing Director</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="testimonial-card">
+          <div class="d-flex justify-content-between">
+            <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+            <i class="fa-solid fa-quote-right quote-icon"></i>
+          </div>
+          <p>"AUTOZEN has been our go-to for fleet detailing. Consistent quality, always on time, and great value."</p>
+          <div class="d-flex align-items-center gap-3 mt-3">
+            <img src="https://randomuser.me/api/portraits/women/22.jpg" class="reviewer-avatar" alt="">
+            <div><strong>Sarah Kim</strong><div class="text-muted small">Operations Manager</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-location" id="location">
+  <div class="container">
+    <div class="row align-items-center gy-4">
+      <div class="col-lg-5">
+        <p class="eyebrow"><i class="fa-solid fa-location-dot"></i> SERVICE AREA</p>
+        <h2 class="section-title">WE COME TO YOU</h2>
+        <p class="section-text" style="font-size:1.1rem;color:var(--text-light);">
+          <strong style="color:var(--red);font-size:1.4rem;font-family:var(--font-display);">MOBILE TO ANYWHERE AROUND THE AREA</strong>
+        </p>
+        <p class="section-text">Based in <strong style="color:var(--white);">Elizabethtown, Kentucky</strong>, we bring our premium detailing services directly to your location — whether you're at home, work, or anywhere in between.</p>
+        <div class="location-badge">
+          <i class="fa-solid fa-map-pin"></i>
+          Elizabethtown, KY
+        </div>
+        <div class="mt-3 d-flex gap-3 flex-wrap">
+          <span style="color:var(--text-muted);font-size:.85rem;"><i class="fa-solid fa-check-circle" style="color:var(--red);"></i> Mobile service</span>
+          <span style="color:var(--text-muted);font-size:.85rem;"><i class="fa-solid fa-check-circle" style="color:var(--red);"></i> Flexible scheduling</span>
+          <span style="color:var(--text-muted);font-size:.85rem;"><i class="fa-solid fa-check-circle" style="color:var(--red);"></i> Free quotes</span>
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <div class="map-container">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24918.874025540077!2d-85.882729132314!3d37.69361352715025!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x886885e483f75b4b%3A0x81c3a39b00ad0e4b!2sElizabethtown%2C%20KY%2042701!5e0!3m2!1sen!2sus!4v1700000000000" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Elizabethtown Kentucky Map">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-quote" id="quote">
+  <div class="container position-relative">
+    <div class="row align-items-center gy-5">
+      <div class="col-lg-6">
+        <p class="eyebrow"><i class="fa-solid fa-pencil"></i> GET A QUOTE</p>
+        <h2 class="section-title text-white">READY TO GIVE YOUR CAR THE ROYAL TREATMENT?</h2>
+        <p class="section-text text-light-50">Tell us about your vehicle and what you need. We'll get back to you within 24 hours with a personalized quote and availability.</p>
+        <div class="mt-4 d-flex flex-wrap gap-4">
+          <div>
+            <i class="fa-solid fa-phone" style="color:var(--red);font-size:1.4rem;"></i>
+            <p class="text-light-50 small mt-1">Call us anytime<br><strong style="color:var(--white);">+1 (800) 123-4567</strong></p>
+          </div>
+          <div>
+            <i class="fa-solid fa-envelope" style="color:var(--red);font-size:1.4rem;"></i>
+            <p class="text-light-50 small mt-1">Email us<br><strong style="color:var(--white);">hello@autozen.com</strong></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <form class="quote-form">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <input type="text" placeholder="Your Name" required>
+            </div>
+            <div class="col-md-6">
+              <input type="email" placeholder="Your Email" required>
+            </div>
+            <div class="col-12">
+              <input type="tel" placeholder="Phone Number">
+            </div>
+            <div class="col-12">
+              <select required>
+                <option value="">Select Service</option>
+                <option value="interior">Interior Detailing — $200</option>
+                <option value="exterior">Exterior Detailing — $200</option>
+                <option value="full">Full Package — $400</option>
+              </select>
+            </div>
+            <div class="col-12">
+              <textarea rows="3" placeholder="Tell us about your vehicle (make, model, year, any special requests...)" style="resize:vertical;"></textarea>
+            </div>
+            <div class="col-12">
+              <button type="submit" class="btn btn-cta w-100">Send Quote Request <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer" id="contact">
+  <div class="container py-5">
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <a class="logo footer-logo" href="#">AUTO<span>ZEN</span></a>
+        <p class="footer-text">Driven by excellence in auto care, delivering expert interior and exterior detailing with lasting protection for every vehicle we serve.</p>
+        <div class="d-flex gap-2 mt-3 topbar-social" style="justify-content:flex-start;">
+          <a href="#" style="width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,0.05);color:var(--white);display:flex;align-items:center;justify-content:center;font-size:.75rem;transition:.2s;"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" style="width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,0.05);color:var(--white);display:flex;align-items:center;justify-content:center;font-size:.75rem;transition:.2s;"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" style="width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,0.05);color:var(--white);display:flex;align-items:center;justify-content:center;font-size:.75rem;transition:.2s;"><i class="fa-brands fa-twitter"></i></a>
+          <a href="#" style="width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,0.05);color:var(--white);display:flex;align-items:center;justify-content:center;font-size:.75rem;transition:.2s;"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-2 col-6">
+        <h6 class="footer-heading">Quick Links</h6>
+        <ul class="footer-links">
+          <li><a href="#home"><i class="fa-solid fa-circle-check"></i> Home</a></li>
+          <li><a href="#about"><i class="fa-solid fa-circle-check"></i> About Us</a></li>
+          <li><a href="#services-pricing"><i class="fa-solid fa-circle-check"></i> Services</a></li>
+          <li><a href="#testimonials"><i class="fa-solid fa-circle-check"></i> Reviews</a></li>
+          <li><a href="#location"><i class="fa-solid fa-circle-check"></i> Service Area</a></li>
+          <li><a href="#contact"><i class="fa-solid fa-circle-check"></i> Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-6">
+        <h6 class="footer-heading">Our Services</h6>
+        <ul class="footer-links">
+          <li><a href="#services-pricing"><i class="fa-solid fa-circle-check"></i> Interior Detailing</a></li>
+          <li><a href="#services-pricing"><i class="fa-solid fa-circle-check"></i> Exterior Detailing</a></li>
+          <li><a href="#services-pricing"><i class="fa-solid fa-circle-check"></i> Full Package</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3">
+        <h6 class="footer-heading">Contact Info</h6>
+        <ul class="footer-contact">
+          <li><i class="fa-solid fa-phone"></i> <span>Phone Number<br><a href="tel:+18001234567">+1 (800) 123-4567</a></span></li>
+          <li><i class="fa-solid fa-envelope"></i> <span>Email Address<br><a href="mailto:hello@autozen.com">hello@autozen.com</a></span></li>
+          <li><i class="fa-solid fa-location-dot"></i> <span>Garage Address<br>Elizabethtown, KY</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container d-flex flex-wrap justify-content-between py-3">
+      <span>&copy; 2026 AUTOZEN. All Rights Reserved.</span>
+      <span><a href="#">Privacy Policy</a> &nbsp;|&nbsp; <a href="#">Terms of Service</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
