@@ -37,15 +37,13 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-display);color:var(--white);text-transf
 .btn-outline-cta{background:transparent;border:1px solid var(--border-soft);color:var(--white);font-weight:600;padding:.8rem 1.8rem;border-radius:6px;text-transform:uppercase;font-size:.85rem;letter-spacing:.5px;transition:.25s;}
 .btn-outline-cta:hover{background:rgba(255,255,255,0.08);color:var(--white);}
 
-/* REMOVED TOPBAR */
-
 .main-nav{background:var(--bg-dark);padding:1rem 0;border-bottom:1px solid var(--border-soft);}
 .logo{font-family:var(--font-display);font-weight:800;font-size:1.7rem;color:var(--white);text-transform:uppercase;letter-spacing:1px;}
 .logo span{color:var(--red);}
 .nav-link{color:var(--text-light) !important;font-weight:600;font-size:.92rem;padding:.5rem 1rem !important;text-transform:capitalize;transition:.2s;}
 .nav-link:hover,.nav-link.active{color:var(--red) !important;}
 
-/* HEADER PHONE ICON - VISIBLE OUTSIDE HAMBURGER MENU */
+/* HEADER PHONE ICON */
 .header-right{
   display:flex;
   align-items:center;
@@ -75,7 +73,6 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-display);color:var(--white);text-transf
 .header-phone .phone-number{
   display:inline;
 }
-/* Mobile: show only icon, hide number and border */
 @media (max-width:991px){
   .header-phone{
     border:none;
@@ -91,7 +88,6 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-display);color:var(--white);text-transf
     display:none !important;
   }
 }
-/* Desktop: show full number */
 @media (min-width:992px){
   .header-phone .phone-number{
     display:inline;
@@ -125,16 +121,74 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-display);color:var(--white);text-transf
 .hero-text{color:var(--text-light);font-size:1.1rem;max-width:520px;line-height:1.75;}
 .hero .btn-group{margin-top:1.5rem;}
 
-.feature-strip{background:var(--bg-darker);}
+/* FEATURE STRIP - MEDIUM-SMALL */
+.feature-strip{background:var(--bg-darker);padding:.5rem 0;}
 .feature-strip .row{margin:0;}
 .feature-strip .col-md-3{padding:0;}
-.feature-box{background:var(--bg-card);padding:2rem 1.6rem;height:100%;border-right:1px solid var(--border-soft);transition:.25s;}
-.feature-box i{font-size:1.8rem;color:var(--red);margin-bottom:1rem;display:block;}
-.feature-box h6{font-size:1.05rem;margin-bottom:.6rem;}
-.feature-box p{color:var(--text-muted);font-size:.85rem;line-height:1.6;margin:0;}
+.feature-box{
+  background:var(--bg-card);
+  padding:1rem 1.2rem;
+  height:100%;
+  border-right:1px solid var(--border-soft);
+  transition:.25s;
+  display:flex;
+  align-items:center;
+  gap:14px;
+  min-height:70px;
+}
+.feature-box:last-child{border-right:none;}
+.feature-box i{
+  font-size:1.4rem;
+  color:var(--red);
+  flex-shrink:0;
+  width:30px;
+  text-align:center;
+}
+.feature-box h6{
+  font-size:.85rem;
+  margin:0 0 2px 0;
+  color:var(--white);
+  letter-spacing:.5px;
+}
+.feature-box p{
+  color:var(--text-muted);
+  font-size:.72rem;
+  line-height:1.4;
+  margin:0;
+}
+.feature-box .feature-text{
+  display:flex;
+  flex-direction:column;
+}
 .feature-box.active-box{background:var(--red);}
 .feature-box.active-box i,.feature-box.active-box h6{color:var(--white);}
 .feature-box.active-box p{color:rgba(255,255,255,.85);}
+
+@media (max-width:767px){
+  .feature-box{
+    padding:.7rem .8rem;
+    min-height:60px;
+    border-right:none;
+    border-bottom:1px solid var(--border-soft);
+  }
+  .feature-box i{
+    font-size:1.2rem;
+    width:24px;
+  }
+  .feature-box h6{
+    font-size:.75rem;
+  }
+  .feature-box p{
+    font-size:.65rem;
+  }
+  .feature-strip .col-6:nth-child(odd) .feature-box{
+    border-right:1px solid var(--border-soft);
+  }
+  .feature-strip .col-6:nth-child(3) .feature-box,
+  .feature-strip .col-6:nth-child(4) .feature-box{
+    border-bottom:none;
+  }
+}
 
 .section-about{padding:6rem 0;background:var(--bg-dark);}
 .about-img-grid{position:relative;display:grid;grid-template-columns:1.4fr 1fr;gap:1rem;}
@@ -149,11 +203,41 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-display);color:var(--white);text-transf
 .exp-badge .num{font-family:var(--font-display);font-weight:800;font-size:2.6rem;color:var(--white);line-height:1;}
 .exp-badge .label{color:rgba(255,255,255,.85);font-size:.85rem;margin-top:.4rem;}
 
-.stats-bar{background:var(--red);padding:2.5rem 0;}
-.stat-item{display:flex;flex-direction:column;align-items:center;border-right:1px solid rgba(255,255,255,.25);}
+/* STATS BAR - MEDIUM-SMALL */
+.stats-bar{background:var(--red);padding:1.5rem 0;}
+.stat-item{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  border-right:1px solid rgba(255,255,255,.2);
+  padding:.2rem 0;
+}
 .stat-item:last-child{border-right:none;}
-.stat-num{font-family:var(--font-display);font-weight:800;font-size:2.6rem;color:rgba(255,255,255,.35);line-height:1;}
-.stat-label{color:var(--white);font-weight:700;font-size:.85rem;text-transform:uppercase;margin-top:.4rem;letter-spacing:.5px;}
+.stat-num{
+  font-family:var(--font-display);
+  font-weight:800;
+  font-size:2rem;
+  color:rgba(255,255,255,.3);
+  line-height:1;
+}
+.stat-label{
+  color:var(--white);
+  font-weight:600;
+  font-size:.7rem;
+  text-transform:uppercase;
+  margin-top:.2rem;
+  letter-spacing:.5px;
+  text-align:center;
+  line-height:1.2;
+}
+
+@media (max-width:767px){
+  .stats-bar{padding:1rem 0;}
+  .stat-num{font-size:1.6rem;}
+  .stat-label{font-size:.6rem;}
+  .stat-item{border-right:none;margin-bottom:.5rem;}
+  .stat-item:last-child{margin-bottom:0;}
+}
 
 .section-services-pricing{padding:6rem 0;background:var(--bg-dark);}
 .service-price-card{background:var(--bg-card);border:1px solid var(--border-soft);border-radius:14px;padding:2.4rem;height:100%;transition:.25s;text-align:center;}
@@ -285,7 +369,6 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-display);color:var(--white);text-transf
   .hero-title{font-size:2.6rem;}
   .section-title{font-size:1.9rem;}
   .audience-badge,.hero-float-card{position:static;margin-top:1rem;display:inline-flex;}
-  .feature-box{border-right:none;border-bottom:1px solid var(--border-soft);}
   .service-price-card.featured{transform:scale(1);}
   .section-location .map-container{height:240px;}
 }
@@ -294,7 +377,6 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-display);color:var(--white);text-transf
   .hero-title{font-size:2.2rem;}
   .about-img-grid{grid-template-columns:1fr;}
   .about-img-grid img{height:240px;}
-  .stat-item{border-right:none;margin-bottom:1.5rem;}
   .section-location .map-container{height:200px;}
 }
 a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--red);outline-offset:2px;}
@@ -307,24 +389,17 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
   <div class="container">
     <a class="navbar-brand logo" href="#home">AUTO<span>ZEN</span></a>
     
-    <!-- RIGHT SIDE: Phone icon + Hamburger (always outside menu) -->
     <div class="header-right">
-      <!-- PHONE ICON - Always visible, outside hamburger menu -->
       <a href="tel:+18001234567" class="header-phone">
         <i class="fa-solid fa-phone"></i>
         <span class="phone-number">+1 (800) 123-4567</span>
       </a>
-      
-      <!-- Get a Quote - Desktop only -->
       <a href="#quote" class="btn btn-cta d-none d-lg-inline-block">Get a Quote</a>
-      
-      <!-- Hamburger Toggle -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
         <span class="navbar-toggler-icon"></span>
       </button>
     </div>
     
-    <!-- Navigation Menu -->
     <div class="collapse navbar-collapse" id="navMenu">
       <ul class="navbar-nav mx-auto gap-1">
         <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
@@ -334,7 +409,6 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
         <li class="nav-item"><a class="nav-link" href="#location">Service Area</a></li>
         <li class="nav-item"><a class="nav-link" href="#contact">Contact Us</a></li>
       </ul>
-      <!-- Mobile Quote Button (inside menu) -->
       <a href="#quote" class="btn btn-cta d-lg-none w-100 mt-2">Get a Quote</a>
     </div>
   </div>
@@ -356,35 +430,44 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
   </div>
 </header>
 
+<!-- FEATURE STRIP -->
 <section class="feature-strip">
   <div class="container">
     <div class="row g-0">
       <div class="col-md-3 col-6">
         <div class="feature-box active-box">
           <i class="fa-solid fa-certificate"></i>
-          <h6>Certified Technicians</h6>
-          <p>Skilled experts handling every car with precision and care.</p>
+          <div class="feature-text">
+            <h6>Certified Technicians</h6>
+            <p>Skilled experts handling every car with precision and care.</p>
+          </div>
         </div>
       </div>
       <div class="col-md-3 col-6">
         <div class="feature-box">
           <i class="fa-solid fa-gear"></i>
-          <h6>Modern Equipment</h6>
-          <p>State-of-the-art tools for top-quality detailing results.</p>
+          <div class="feature-text">
+            <h6>Modern Equipment</h6>
+            <p>State-of-the-art tools for top-quality detailing results.</p>
+          </div>
         </div>
       </div>
       <div class="col-md-3 col-6">
         <div class="feature-box">
           <i class="fa-solid fa-rocket"></i>
-          <h6>Fast Turnaround Time</h6>
-          <p>Quick, efficient service to get you back on the road.</p>
+          <div class="feature-text">
+            <h6>Fast Turnaround Time</h6>
+            <p>Quick, efficient service to get you back on the road.</p>
+          </div>
         </div>
       </div>
       <div class="col-md-3 col-6">
         <div class="feature-box">
           <i class="fa-solid fa-truck"></i>
-          <h6>Fleet Services</h6>
-          <p>Reliable detailing for business fleets.</p>
+          <div class="feature-text">
+            <h6>Fleet Services</h6>
+            <p>Reliable detailing for business fleets.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -428,13 +511,26 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
   </div>
 </section>
 
+<!-- STATS BAR - MEDIUM-SMALL -->
 <section class="stats-bar">
   <div class="container">
     <div class="row text-center">
-      <div class="col-6 col-md-3 stat-item"><span class="stat-num">10K+</span><span class="stat-label">Vehicles<br>Detailed</span></div>
-      <div class="col-6 col-md-3 stat-item"><span class="stat-num">4.9★</span><span class="stat-label">Customer<br>Rating</span></div>
-      <div class="col-6 col-md-3 stat-item"><span class="stat-num">250+</span><span class="stat-label">Corporate<br>Clients</span></div>
-      <div class="col-6 col-md-3 stat-item"><span class="stat-num">98%</span><span class="stat-label">Client<br>Retention</span></div>
+      <div class="col-6 col-md-3 stat-item">
+        <span class="stat-num">10K+</span>
+        <span class="stat-label">Vehicles<br>Detailed</span>
+      </div>
+      <div class="col-6 col-md-3 stat-item">
+        <span class="stat-num">4.9★</span>
+        <span class="stat-label">Customer<br>Rating</span>
+      </div>
+      <div class="col-6 col-md-3 stat-item">
+        <span class="stat-num">250+</span>
+        <span class="stat-label">Corporate<br>Clients</span>
+      </div>
+      <div class="col-6 col-md-3 stat-item">
+        <span class="stat-num">98%</span>
+        <span class="stat-label">Client<br>Retention</span>
+      </div>
     </div>
   </div>
 </section>
