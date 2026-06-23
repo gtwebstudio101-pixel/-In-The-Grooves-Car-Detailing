@@ -51,6 +51,7 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-display);color:var(--white);text-transf
 .nav-link{color:var(--text-light) !important;font-weight:600;font-size:.85rem;padding:.5rem .8rem !important;text-transform:capitalize;transition:.2s;}
 .nav-link:hover,.nav-link.active{color:var(--red) !important;}
 
+/* HEADER RIGHT - PHONE + GET A QUOTE + HAMBURGER */
 .header-right{
   display:flex;
   align-items:center;
@@ -98,6 +99,7 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-display);color:var(--white);text-transf
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255,255,255,0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
+/* Mobile: hide phone number, show only icon, hide Get a Quote button */
 @media (max-width:991px){
   .header-phone{
     border:none;
@@ -117,6 +119,7 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-display);color:var(--white);text-transf
   }
 }
 
+/* Desktop: show full phone number and Get a Quote button */
 @media (min-width:992px){
   .header-phone .phone-number{
     display:inline;
@@ -126,12 +129,13 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-display);color:var(--white);text-transf
   }
 }
 
+/* HERO */
 .hero{
   position:relative;
   padding:6rem 0 7rem;
   background: 
     radial-gradient(circle at 80% 20%, rgba(232,57,47,.12), transparent 45%),
-    url('https://raw.githubusercontent.com/gtwebstudio101-pixel/-In-The-Grooves-Car-Detailing/main/car%20detailing%20website%20img/main%20hero%20bg%20img%20.png') center/cover no-repeat;
+    url('https://github.com/gtwebstudio101-pixel/-In-The-Grooves-Car-Detailing/blob/main/car%20detailing%20website%20img/main%20hero%20bg%20img%20.png?raw=true') center/cover no-repeat;
   overflow:hidden;
   min-height:100vh;
   display:flex;
@@ -152,6 +156,7 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-display);color:var(--white);text-transf
 .hero-text{color:var(--text-light);font-size:1.1rem;max-width:520px;line-height:1.75;}
 .hero .btn-group{margin-top:1.5rem;}
 
+/* FEATURE STRIP - MEDIUM-SMALL */
 .feature-strip{background:var(--bg-darker);padding:.5rem 0;}
 .feature-strip .row{margin:0;}
 .feature-strip .col-md-3{padding:0;}
@@ -233,6 +238,7 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-display);color:var(--white);text-transf
 .exp-badge .num{font-family:var(--font-display);font-weight:800;font-size:2.6rem;color:var(--white);line-height:1;}
 .exp-badge .label{color:rgba(255,255,255,.85);font-size:.85rem;margin-top:.4rem;}
 
+/* STATS BAR - MEDIUM-SMALL */
 .stats-bar{background:var(--red);padding:1.5rem 0;}
 .stat-item{
   display:flex;
@@ -300,71 +306,6 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-display);color:var(--white);text-transf
 .quote-icon{color:var(--border-soft);font-size:1.6rem;}
 .testimonial-card p{color:var(--text-light);font-size:.92rem;line-height:1.7;margin:1.2rem 0 0;}
 .reviewer-avatar{width:46px;height:46px;border-radius:50%;object-fit:cover;}
-
-/* 3D Car Container - direct render, no iframe */
-.car-container-3d{
-  width:100%;
-  height:560px;
-  border-radius:16px;
-  overflow:hidden;
-  border:1px solid var(--border-soft);
-  margin:1.5rem 0;
-  background:var(--bg-darker);
-  position:relative;
-}
-.car-container-3d canvas{
-  display:block;
-  width:100%;
-  height:100%;
-}
-.car-container-3d #ferrari-info{
-  position:absolute;
-  bottom:14px;
-  left:50%;
-  transform:translateX(-50%);
-  color:rgba(255,255,255,0.45);
-  font-size:11px;
-  background:rgba(0,0,0,0.6);
-  padding:4px 16px;
-  border-radius:16px;
-  backdrop-filter:blur(6px);
-  pointer-events:none;
-  letter-spacing:.3px;
-  white-space:nowrap;
-  z-index:2;
-}
-.car-container-3d #ferrari-error{
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  background:rgba(180,40,40,0.92);
-  color:#fff;
-  padding:14px 20px;
-  border-radius:10px;
-  font-size:13px;
-  font-weight:600;
-  text-align:center;
-  display:none;
-  z-index:3;
-  max-width:85%;
-}
-.car-container-3d #ferrari-loading{
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  color:rgba(255,255,255,0.5);
-  font-size:13px;
-  letter-spacing:.5px;
-  z-index:1;
-}
-
-@media (max-width:767px){
-  .car-container-3d{
-    height:380px;
-  }
-}
 
 .section-location{
   padding:5rem 0;
@@ -476,58 +417,467 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-display);color:var(--white);text-transf
 a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--red);outline-offset:2px;}
 @media (prefers-reduced-motion: reduce){*{transition:none !important;}}
 </style>
-</head>
+
+
+<style>
+/* ===== PROFESSIONAL ANIMATION SYSTEM ===== */
+
+html { scroll-behavior: smooth; }
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0d0d0d; }
+::-webkit-scrollbar-thumb { background: #e8392f; border-radius: 3px; }
+
+/* ===== IMAGE REVEAL - RED OVERLAY SLIDES RIGHT ===== */
+.img-reveal {
+  position: relative;
+  overflow: hidden;
+  display: block;
+}
+.img-reveal::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #e8392f;
+  z-index: 5;
+  transform: translateX(0);
+  transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+}
+.img-reveal.revealed::before {
+  transform: translateX(100%);
+}
+.img-reveal img {
+  transform: scale(1.2);
+  transition: transform 1.4s cubic-bezier(0.77, 0, 0.175, 1);
+}
+.img-reveal.revealed img {
+  transform: scale(1);
+}
+
+/* ===== SCROLL REVEAL (fade-up) ===== */
+.reveal-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);
+}
+.reveal-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.9s cubic-bezier(0.16,1,0.3,1), transform 0.9s cubic-bezier(0.16,1,0.3,1);
+}
+.reveal-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.9s cubic-bezier(0.16,1,0.3,1), transform 0.9s cubic-bezier(0.16,1,0.3,1);
+}
+.reveal-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1);
+}
+.reveal-scale.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ===== STAGGER CHILDREN ===== */
+.stagger-children > * {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1);
+}
+.stagger-children.visible > *:nth-child(1) { opacity: 1; transform: translateY(0); transition-delay: 0.0s; }
+.stagger-children.visible > *:nth-child(2) { opacity: 1; transform: translateY(0); transition-delay: 0.1s; }
+.stagger-children.visible > *:nth-child(3) { opacity: 1; transform: translateY(0); transition-delay: 0.2s; }
+.stagger-children.visible > *:nth-child(4) { opacity: 1; transform: translateY(0); transition-delay: 0.3s; }
+.stagger-children.visible > *:nth-child(5) { opacity: 1; transform: translateY(0); transition-delay: 0.4s; }
+.stagger-children.visible > *:nth-child(6) { opacity: 1; transform: translateY(0); transition-delay: 0.5s; }
+
+/* ===== HERO ENTRANCE ===== */
+.hero-load {
+  opacity: 0;
+  transform: translateY(30px);
+}
+.hero-load.animated {
+  animation: heroFadeIn 0.9s cubic-bezier(0.16,1,0.3,1) forwards;
+}
+.hero-load.delay-1.animated { animation-delay: 0.2s; }
+.hero-load.delay-2.animated { animation-delay: 0.4s; }
+.hero-load.delay-3.animated { animation-delay: 0.6s; }
+@keyframes heroFadeIn {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== HOVER EFFECTS ===== */
+.hover-lift {
+  transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s cubic-bezier(0.16,1,0.3,1);
+}
+.hover-lift:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3), 0 0 20px rgba(232,57,47,0.08);
+}
+
+.hover-zoom { overflow: hidden; }
+.hover-zoom img {
+  transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
+}
+.hover-zoom:hover img {
+  transform: scale(1.08);
+}
+
+.btn-magnetic {
+  transition: transform 0.2s ease, background 0.25s ease;
+}
+.btn-magnetic:hover {
+  transform: translateY(-2px);
+}
+.btn-ripple {
+  position: relative;
+  overflow: hidden;
+}
+.btn-ripple::after {
+  content: '';
+  position: absolute;
+  width: 100%; height: 100%;
+  top: 0; left: 0;
+  background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+  transform: scale(0);
+  opacity: 0;
+  transition: transform 0.4s, opacity 0.4s;
+}
+.btn-ripple:active::after {
+  transform: scale(2.5);
+  opacity: 1;
+  transition: 0s;
+}
+
+.icon-spin-hover:hover i {
+  animation: iconSpin 0.5s ease;
+}
+@keyframes iconSpin {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.2); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+.social-hover {
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+.social-hover:hover {
+  transform: translateY(-4px) rotate(8deg);
+  background: #e8392f !important;
+}
+
+.footer-link-hover {
+  position: relative;
+  display: inline-block;
+}
+.footer-link-hover::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 0; height: 1px;
+  background: #e8392f;
+  transition: width 0.3s ease;
+}
+.footer-link-hover:hover::after {
+  width: 100%;
+}
+
+/* ===== NAVBAR ===== */
+.nav-scrolled {
+  background: rgba(18,18,18,0.95) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  box-shadow: 0 4px 30px rgba(0,0,0,0.3) !important;
+  padding: 0.6rem 0 !important;
+}
+
+.nav-underline {
+  position: relative;
+}
+.nav-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 50%;
+  width: 0; height: 2px;
+  background: #e8392f;
+  transition: width 0.3s cubic-bezier(0.16,1,0.3,1), left 0.3s cubic-bezier(0.16,1,0.3,1);
+}
+.nav-underline:hover::after,
+.nav-underline.active::after {
+  width: 100%; left: 0;
+}
+
+/* ===== COUNTER ===== */
+.counter-num { font-variant-numeric: tabular-nums; }
+
+/* ===== FLOATING ===== */
+.float-slow {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+/* ===== PULSE GLOW ===== */
+.pulse-glow {
+  animation: pulseGlow 2.5s ease-in-out infinite;
+}
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(232,57,47,0.3); }
+  50% { box-shadow: 0 0 25px 8px rgba(232,57,47,0.15); }
+}
+
+/* ===== SHIMMER ===== */
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent);
+  animation: shimmerMove 3s infinite;
+}
+@keyframes shimmerMove {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* ===== SCROLL PROGRESS ===== */
+.scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #e8392f, #ff6b6b);
+  z-index: 10000;
+  width: 0%;
+  transition: width 0.1s linear;
+}
+
+/* ===== LOADING SCREEN ===== */
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  background: #0d0d0d;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+.loading-screen.done {
+  opacity: 0;
+  visibility: hidden;
+}
+.loader-ring {
+  width: 50px; height: 50px;
+  border: 3px solid rgba(232,57,47,0.2);
+  border-top-color: #e8392f;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+.loader-text {
+  margin-top: 1rem;
+  font-family: 'Saira Condensed', sans-serif;
+  font-size: 1.1rem;
+  color: #fff;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+/* ===== SCROLL INDICATOR ===== */
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  animation: fadeInUp 1s ease 1s both;
+}
+.scroll-indicator span {
+  font-size: 0.65rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+}
+.scroll-indicator .mouse {
+  width: 22px; height: 34px;
+  border: 2px solid rgba(255,255,255,0.25);
+  border-radius: 11px;
+  position: relative;
+}
+.scroll-indicator .mouse::after {
+  content: '';
+  position: absolute;
+  width: 3px; height: 6px;
+  background: #e8392f;
+  border-radius: 2px;
+  left: 50%; top: 5px;
+  transform: translateX(-50%);
+  animation: scrollWheel 1.5s ease-in-out infinite;
+}
+@keyframes scrollWheel {
+  0% { top: 5px; opacity: 1; }
+  100% { top: 16px; opacity: 0; }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateX(-50%) translateY(20px); }
+  to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+/* ===== 3D TILT ===== */
+.tilt-card {
+  transform-style: preserve-3d;
+  transition: transform 0.1s ease-out;
+}
+
+/* ===== FORM FOCUS ===== */
+.quote-form input:focus,
+.quote-form select:focus,
+.quote-form textarea:focus {
+  transform: translateX(3px);
+  box-shadow: 0 0 0 3px rgba(232,57,47,0.12);
+}
+
+/* ===== STAR POP ===== */
+.star-pop i {
+  display: inline-block;
+  opacity: 0;
+  transform: scale(0);
+}
+.star-pop.visible i:nth-child(1) { animation: starPopIn 0.3s 0.0s cubic-bezier(0.68,-0.55,0.265,1.55) forwards; }
+.star-pop.visible i:nth-child(2) { animation: starPopIn 0.3s 0.1s cubic-bezier(0.68,-0.55,0.265,1.55) forwards; }
+.star-pop.visible i:nth-child(3) { animation: starPopIn 0.3s 0.2s cubic-bezier(0.68,-0.55,0.265,1.55) forwards; }
+.star-pop.visible i:nth-child(4) { animation: starPopIn 0.3s 0.3s cubic-bezier(0.68,-0.55,0.265,1.55) forwards; }
+.star-pop.visible i:nth-child(5) { animation: starPopIn 0.3s 0.4s cubic-bezier(0.68,-0.55,0.265,1.55) forwards; }
+@keyframes starPopIn {
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* ===== BADGE BOUNCE ===== */
+.badge-bounce {
+  animation: badgeBounce 0.7s cubic-bezier(0.68,-0.55,0.265,1.55) forwards;
+}
+@keyframes badgeBounce {
+  0% { transform: scale(0); }
+  60% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+/* ===== PARTICLES ===== */
+#particles-canvas {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ===== REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+</style>
+
 <body>
+<!-- LOADING SCREEN -->
+<div class="loading-screen">
+  <div class="loader-ring"></div>
+  <div class="loader-text">In The Grooves</div>
+</div>
+
 
 <nav class="navbar navbar-expand-lg navbar-dark main-nav sticky-top">
   <div class="container">
     <a class="navbar-brand logo" href="#home">In The Grooves<span> Car Detailing</span></a>
     
+    <!-- HEADER RIGHT - ALWAYS VISIBLE (Phone + Get a Quote + Hamburger) -->
     <div class="header-right">
       <a href="tel:+12707340619" class="header-phone">
         <i class="fa-solid fa-phone"></i>
         <span class="phone-number">+1 270-734-0619</span>
       </a>
-      <a href="#quote" class="btn btn-cta">Get a Quote</a>
+      <a href="#quote" class="btn btn-cta btn-magnetic btn-ripple">Get a Quote</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
     </div>
     
+    <!-- NAVIGATION MENU -->
     <div class="collapse navbar-collapse" id="navMenu">
       <ul class="navbar-nav mx-auto gap-1">
-        <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
-        <li class="nav-item"><a class="nav-link" href="#services-pricing">Services &amp; Pricing</a></li>
-        <li class="nav-item"><a class="nav-link" href="#testimonials">Reviews</a></li>
-        <li class="nav-item"><a class="nav-link" href="#location">Service Area</a></li>
-        <li class="nav-item"><a class="nav-link" href="#contact">Contact Us</a></li>
+        <li class="nav-item"><a class="nav-link nav-underline active" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link nav-underline" href="#about">About Us</a></li>
+        <li class="nav-item"><a class="nav-link nav-underline" href="#services-pricing">Services &amp; Pricing</a></li>
+        <li class="nav-item"><a class="nav-link nav-underline" href="#testimonials">Reviews</a></li>
+        <li class="nav-item"><a class="nav-link nav-underline" href="#location">Service Area</a></li>
+        <li class="nav-item"><a class="nav-link nav-underline" href="#contact">Contact Us</a></li>
       </ul>
       <a href="#quote" class="btn btn-cta d-lg-none w-100 mt-2">Get a Quote</a>
     </div>
   </div>
 </nav>
 
+<!-- HERO -->
 <header class="hero" id="home">
   <div class="container">
     <div class="row">
       <div class="col-lg-7">
-        <h1 class="hero-title">PRECISION MEETS<br>PERFECTION.</h1>
-        <p class="hero-text">In The Grooves Car Detailing provides expert interior and exterior detailing to keep your vehicle spotless and protected. Trusted by car owners who demand the best.</p>
-        <div class="d-flex flex-wrap gap-3 mt-4 btn-group">
-          <a href="#services-pricing" class="btn btn-cta">View Services &amp; Pricing</a>
-          <a href="#quote" class="btn btn-outline-cta">Book Now</a>
+        <h1 class="hero-title hero-load delay-1">PRECISION MEETS<br>PERFECTION.</h1>
+        <p class="hero-text hero-load delay-2">In The Grooves Car Detailing provides expert interior and exterior detailing to keep your vehicle spotless and protected. Trusted by car owners who demand the best.</p>
+        <div class="d-flex flex-wrap gap-3 mt-4 btn-group hero-load delay-3">
+          <a href="#services-pricing" class="btn btn-cta btn-magnetic btn-ripple">View Services &amp; Pricing</a>
+          <a href="#quote" class="btn btn-outline-cta btn-magnetic btn-ripple">Book Now</a>
         </div>
       </div>
     </div>
   </div>
+  <div class="scroll-indicator">
+    <span>Scroll</span>
+    <div class="mouse"></div>
+  </div>
 </header>
 
+<!-- FEATURE STRIP -->
 <section class="feature-strip">
   <div class="container">
     <div class="row g-0">
       <div class="col-md-3 col-6">
-        <div class="feature-box active-box">
+        <div class="feature-box active-box icon-spin-hover">
           <i class="fa-solid fa-certificate"></i>
           <div class="feature-text">
             <h6>Certified Technicians</h6>
@@ -536,7 +886,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
         </div>
       </div>
       <div class="col-md-3 col-6">
-        <div class="feature-box">
+        <div class="feature-box icon-spin-hover">
           <i class="fa-solid fa-gear"></i>
           <div class="feature-text">
             <h6>Modern Equipment</h6>
@@ -545,7 +895,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
         </div>
       </div>
       <div class="col-md-3 col-6">
-        <div class="feature-box">
+        <div class="feature-box icon-spin-hover">
           <i class="fa-solid fa-rocket"></i>
           <div class="feature-text">
             <h6>Fast Turnaround Time</h6>
@@ -554,7 +904,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
         </div>
       </div>
       <div class="col-md-3 col-6">
-        <div class="feature-box">
+        <div class="feature-box icon-spin-hover">
           <i class="fa-solid fa-truck"></i>
           <div class="feature-text">
             <h6>Fleet Services</h6>
@@ -571,21 +921,23 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
     <div class="row align-items-center gy-5">
       <div class="col-lg-6">
         <div class="about-img-grid">
-          <img src="https://raw.githubusercontent.com/gtwebstudio101-pixel/-In-The-Grooves-Car-Detailing/main/car%20detailing%20website%20img/seconed%20img%20.jpg" alt="Engine bay cleaning" style="grid-column: span 2; height: 380px; width: 100%;">
-          <div class="audience-badge">
+          <div class="img-reveal" style="grid-column: span 2;">
+            <img src="https://github.com/gtwebstudio101-pixel/-In-The-Grooves-Car-Detailing/blob/main/car%20detailing%20website%20img/seconed%20img%20.jpg?raw=true" alt="Engine bay cleaning" style="height: 380px; width: 100%; object-fit: cover; border-radius: 10px;">
+          </div>
+          <div class="audience-badge float-slow badge-bounce">
             <span class="num">4,600+</span>
             <span class="label">Happy Customers</span>
           </div>
         </div>
       </div>
       <div class="col-lg-6">
-        <p class="eyebrow"><i class="fa-solid fa-car"></i> ABOUT In The Grooves Car Detailing</p>
-        <h2 class="section-title">DRIVEN BY PASSION<br>POWERED BY PRECISION</h2>
-        <p class="section-text">Founded with a mission to elevate car care, In The Grooves Car Detailing combines cutting-edge tools with skilled hands to deliver top-tier interior and exterior detailing for both personal and business vehicles.</p>
-        <p class="section-text">From restoring your car's interior to ensuring a flawless exterior shine, every job is handled with the utmost care, attention, and a customer-first approach.</p>
+        <p class="eyebrow reveal-up"><i class="fa-solid fa-car"></i> ABOUT In The Grooves Car Detailing</p>
+        <h2 class="section-title reveal-left">DRIVEN BY PASSION<br>POWERED BY PRECISION</h2>
+        <p class="section-text reveal-up">Founded with a mission to elevate car care, In The Grooves Car Detailing combines cutting-edge tools with skilled hands to deliver top-tier interior and exterior detailing for both personal and business vehicles.</p>
+        <p class="section-text reveal-up">From restoring your car's interior to ensuring a flawless exterior shine, every job is handled with the utmost care, attention, and a customer-first approach.</p>
         <div class="row mt-4 g-3">
           <div class="col-5">
-            <div class="exp-badge">
+            <div class="exp-badge badge-bounce">
               <span class="num">25+</span>
               <span class="label">Years of<br>Experience</span>
             </div>
@@ -603,6 +955,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
   </div>
 </section>
 
+<!-- STATS BAR -->
 <section class="stats-bar">
   <div class="container">
     <div class="row text-center">
@@ -636,7 +989,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
     <div class="row g-4 justify-content-center">
       
       <div class="col-lg-4 col-md-6">
-        <div class="service-price-card">
+        <div class="service-price-card hover-lift tilt-card">
           <i class="fa-solid fa-couch"></i>
           <h5>Interior Detailing</h5>
           <div class="price-tag"><span class="currency">$</span>200</div>
@@ -647,12 +1000,12 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
             <li><i class="fa-solid fa-circle-check"></i> Dashboard &amp; Trim Conditioning</li>
             <li><i class="fa-solid fa-circle-check"></i> Odor &amp; Bacteria Elimination</li>
           </ul>
-          <a href="#quote" class="btn btn-cta">Book Interior Only</a>
+          <a href="#quote" class="btn btn-cta btn-magnetic btn-ripple">Book Interior Only</a>
         </div>
       </div>
 
       <div class="col-lg-4 col-md-6">
-        <div class="service-price-card featured">
+        <div class="service-price-card featured hover-lift shimmer tilt-card">
           <i class="fa-solid fa-star"></i>
           <h5>Full Package</h5>
           <div class="price-tag"><span class="currency">$</span>400</div>
@@ -663,12 +1016,12 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
             <li><i class="fa-solid fa-circle-check"></i> Premium Wax &amp; Paint Sealant</li>
             <li><i class="fa-solid fa-circle-check"></i> Full Interior &amp; Exterior Protection</li>
           </ul>
-          <a href="#quote" class="btn btn-cta">Book Full Package</a>
+          <a href="#quote" class="btn btn-cta btn-magnetic btn-ripple">Book Full Package</a>
         </div>
       </div>
 
       <div class="col-lg-4 col-md-6">
-        <div class="service-price-card">
+        <div class="service-price-card hover-lift tilt-card">
           <i class="fa-solid fa-spray-can-sparkles"></i>
           <h5>Exterior Detailing</h5>
           <div class="price-tag"><span class="currency">$</span>200</div>
@@ -679,7 +1032,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
             <li><i class="fa-solid fa-circle-check"></i> High-Grade Wax &amp; Sealant</li>
             <li><i class="fa-solid fa-circle-check"></i> Tire &amp; Trim Dressing</li>
           </ul>
-          <a href="#quote" class="btn btn-cta">Book Exterior Only</a>
+          <a href="#quote" class="btn btn-cta btn-magnetic btn-ripple">Book Exterior Only</a>
         </div>
       </div>
     </div>
@@ -690,8 +1043,8 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
   <div class="container">
     <div class="row align-items-start mb-5 gy-3">
       <div class="col-lg-7">
-        <p class="eyebrow"><i class="fa-solid fa-car"></i> CLIENT FEEDBACK</p>
-        <h2 class="section-title">TRUSTED BY BUSINESSES WHO PRIORITIZE QUALITY AUTO CARE</h2>
+        <p class="eyebrow reveal-up"><i class="fa-solid fa-car"></i> CLIENT FEEDBACK</p>
+        <h2 class="section-title reveal-left">TRUSTED BY BUSINESSES WHO PRIORITIZE QUALITY AUTO CARE</h2>
       </div>
       <div class="col-lg-5">
         <div class="d-flex align-items-center gap-3">
@@ -708,19 +1061,11 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
         </div>
       </div>
     </div>
-
-    <!-- 3D FERRARI CAR - rendered directly, no iframe -->
-    <div class="car-container-3d" id="car-container-3d">
-      <div id="ferrari-loading">Loading 3D model…</div>
-      <div id="ferrari-error"></div>
-      <div id="ferrari-info">Ferrari • Mirror Polish • Drag to rotate</div>
-    </div>
-
     <div class="row g-4">
       <div class="col-md-4">
         <div class="testimonial-card">
           <div class="d-flex justify-content-between">
-            <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+            <div class="stars star-pop"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
             <i class="fa-solid fa-quote-right quote-icon"></i>
           </div>
           <p>"The interior detailing was incredible — my car feels brand new again. Super friendly and professional team."</p>
@@ -733,7 +1078,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
       <div class="col-md-4">
         <div class="testimonial-card">
           <div class="d-flex justify-content-between">
-            <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+            <div class="stars star-pop"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
             <i class="fa-solid fa-quote-right quote-icon"></i>
           </div>
           <p>"Outstanding exterior detailing! My car has never looked this good. The wax and sealant job was flawless."</p>
@@ -746,7 +1091,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
       <div class="col-md-4">
         <div class="testimonial-card">
           <div class="d-flex justify-content-between">
-            <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+            <div class="stars star-pop"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
             <i class="fa-solid fa-quote-right quote-icon"></i>
           </div>
           <p>"In The Grooves Car Detailing has been our go-to for fleet detailing. Consistent quality, always on time, and great value."</p>
@@ -764,13 +1109,13 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
   <div class="container">
     <div class="row align-items-center gy-4">
       <div class="col-lg-5">
-        <p class="eyebrow"><i class="fa-solid fa-location-dot"></i> SERVICE AREA</p>
-        <h2 class="section-title">WE COME TO YOU</h2>
+        <p class="eyebrow reveal-up"><i class="fa-solid fa-location-dot"></i> SERVICE AREA</p>
+        <h2 class="section-title reveal-left">WE COME TO YOU</h2>
         <p class="section-text" style="font-size:1.1rem;color:var(--text-light);">
           <strong style="color:var(--red);font-size:1.4rem;font-family:var(--font-display);">MOBILE TO ANYWHERE AROUND THE AREA</strong>
         </p>
         <p class="section-text">Based in <strong style="color:var(--white);">Elizabethtown, Kentucky</strong>, we bring our premium detailing services directly to your location — whether you're at home, work, or anywhere in between.</p>
-        <div class="location-badge">
+        <div class="location-badge pulse-glow">
           <i class="fa-solid fa-map-pin"></i>
           Elizabethtown, KY
         </div>
@@ -799,8 +1144,8 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
   <div class="container position-relative">
     <div class="row align-items-center gy-5">
       <div class="col-lg-6">
-        <p class="eyebrow"><i class="fa-solid fa-pencil"></i> GET A QUOTE</p>
-        <h2 class="section-title text-white">READY TO GIVE YOUR CAR THE ROYAL TREATMENT?</h2>
+        <p class="eyebrow reveal-up"><i class="fa-solid fa-pencil"></i> GET A QUOTE</p>
+        <h2 class="section-title text-white reveal-left">READY TO GIVE YOUR CAR THE ROYAL TREATMENT?</h2>
         <p class="section-text text-light-50">Tell us about your vehicle and what you need. We'll get back to you within 24 hours with a personalized quote and availability.</p>
         <div class="mt-4 d-flex flex-wrap gap-4">
           <div>
@@ -853,16 +1198,16 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
         <a class="logo footer-logo" href="#">In The Grooves<span> Car Detailing</span></a>
         <p class="footer-text">Driven by excellence in auto care, delivering expert interior and exterior detailing with lasting protection for every vehicle we serve.</p>
         <div class="d-flex gap-2 mt-3 topbar-social" style="justify-content:flex-start;">
-          <a href="#" style="width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,0.05);color:var(--white);display:flex;align-items:center;justify-content:center;font-size:.75rem;transition:.2s;"><i class="fa-brands fa-facebook-f"></i></a>
-          <a href="#" style="width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,0.05);color:var(--white);display:flex;align-items:center;justify-content:center;font-size:.75rem;transition:.2s;"><i class="fa-brands fa-instagram"></i></a>
-          <a href="#" style="width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,0.05);color:var(--white);display:flex;align-items:center;justify-content:center;font-size:.75rem;transition:.2s;"><i class="fa-brands fa-twitter"></i></a>
-          <a href="#" style="width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,0.05);color:var(--white);display:flex;align-items:center;justify-content:center;font-size:.75rem;transition:.2s;"><i class="fa-brands fa-youtube"></i></a>
+          <a href="#" class="social-hover" style="width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,0.05);color:var(--white);display:flex;align-items:center;justify-content:center;font-size:.75rem;"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="social-hover" style="width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,0.05);color:var(--white);display:flex;align-items:center;justify-content:center;font-size:.75rem;"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="social-hover" style="width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,0.05);color:var(--white);display:flex;align-items:center;justify-content:center;font-size:.75rem;"><i class="fa-brands fa-twitter"></i></a>
+          <a href="#" class="social-hover" style="width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,0.05);color:var(--white);display:flex;align-items:center;justify-content:center;font-size:.75rem;"><i class="fa-brands fa-youtube"></i></a>
         </div>
       </div>
       <div class="col-lg-2 col-6">
         <h6 class="footer-heading">Quick Links</h6>
         <ul class="footer-links">
-          <li><a href="#home"><i class="fa-solid fa-circle-check"></i> Home</a></li>
+          <li><a href="#home" class="footer-link-hover"><i class="fa-solid fa-circle-check"></i> Home</a></li>
           <li><a href="#about"><i class="fa-solid fa-circle-check"></i> About Us</a></li>
           <li><a href="#services-pricing"><i class="fa-solid fa-circle-check"></i> Services</a></li>
           <li><a href="#testimonials"><i class="fa-solid fa-circle-check"></i> Reviews</a></li>
@@ -873,7 +1218,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
       <div class="col-lg-3 col-6">
         <h6 class="footer-heading">Our Services</h6>
         <ul class="footer-links">
-          <li><a href="#services-pricing"><i class="fa-solid fa-circle-check"></i> Interior Detailing</a></li>
+          <li><a href="#services-pricing" class="footer-link-hover"><i class="fa-solid fa-circle-check"></i> Interior Detailing</a></li>
           <li><a href="#services-pricing"><i class="fa-solid fa-circle-check"></i> Exterior Detailing</a></li>
           <li><a href="#services-pricing"><i class="fa-solid fa-circle-check"></i> Full Package</a></li>
         </ul>
@@ -898,228 +1243,270 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
 
-<script type="importmap">
-{
-  "imports": {
-    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
-    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+<!-- GSAP & ScrollTrigger -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  gsap.registerPlugin(ScrollTrigger);
+
+  // ===== LOADING SCREEN =====
+  const loader = document.querySelector('.loading-screen');
+  if (loader) {
+    setTimeout(() => loader.classList.add('done'), 600);
   }
-}
-</script>
 
-<script type="module">
-import * as THREE from "three";
-import { OrbitControls } from "three/addons/controls/OrbitControls.js";
-import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
-import { DRACOLoader } from "three/addons/loaders/DRACOLoader.js";
-import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
+  // ===== SCROLL PROGRESS BAR =====
+  const progressBar = document.createElement('div');
+  progressBar.className = 'scroll-progress';
+  document.body.appendChild(progressBar);
 
-function showFerrariError(message) {
-  const errEl = document.getElementById("ferrari-error");
-  const loadEl = document.getElementById("ferrari-loading");
-  if (loadEl) loadEl.style.display = "none";
-  if (errEl) {
-    errEl.style.display = "block";
-    errEl.textContent = "ERROR: " + message;
-  }
-  console.error("[Ferrari widget]", message);
-}
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.pageYOffset;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    progressBar.style.width = (scrollTop / docHeight * 100) + '%';
+  }, { passive: true });
 
-try {
-  const container = document.getElementById("car-container-3d");
+  // ===== NAVBAR SCROLL EFFECT =====
+  const navbar = document.querySelector('.main-nav');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('nav-scrolled', window.pageYOffset > 50);
+  }, { passive: true });
 
-  const scene = new THREE.Scene();
-  scene.background = new THREE.Color(0x0d0d0d);
+  // ===== ACTIVE NAV LINK =====
+  const sections = document.querySelectorAll('section[id], header[id]');
+  const navLinks = document.querySelectorAll('.nav-link');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.pageYOffset >= s.offsetTop - 100) current = s.getAttribute('id');
+    });
+    navLinks.forEach(l => {
+      l.classList.toggle('active', l.getAttribute('href') === '#' + current);
+    });
+  }, { passive: true });
 
-  const camera = new THREE.PerspectiveCamera(32, container.clientWidth / container.clientHeight, 0.4, 80);
-  camera.position.set(3.6, 1.4, 4.6);
-  camera.lookAt(0, 0.55, 0);
+  // ===== SMOOTH SCROLL =====
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        window.scrollTo({
+          top: target.getBoundingClientRect().top + window.pageYOffset - 80,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
 
-  const renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: "high-performance" });
-  renderer.setSize(container.clientWidth, container.clientHeight);
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-  renderer.shadowMap.enabled = true;
-  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-  renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1.3;
-  renderer.outputColorSpace = THREE.SRGBColorSpace;
-  container.insertBefore(renderer.domElement, container.firstChild);
+  // ===== HERO ENTRANCE =====
+  document.querySelectorAll('.hero-load').forEach((el, i) => {
+    setTimeout(() => el.classList.add('animated'), 100 + i * 150);
+  });
 
-  const controls = new OrbitControls(camera, renderer.domElement);
-  controls.target.set(0, 0.6, 0);
-  controls.enableDamping = true;
-  controls.dampingFactor = 0.06;
-  controls.autoRotate = true;
-  controls.autoRotateSpeed = 1.4;
-  controls.minDistance = 2.5;
-  controls.maxDistance = 6;
-  controls.minPolarAngle = Math.PI / 2;
-  controls.maxPolarAngle = Math.PI / 2;
-  controls.update();
+  // ===== INTERSECTION OBSERVER for scroll reveals =====
+  const observerOptions = { threshold: 0.15, rootMargin: '0px 0px -40px 0px' };
 
-  const pmremGenerator = new THREE.PMREMGenerator(renderer);
-  const roomEnv = new RoomEnvironment();
-  const envMap = pmremGenerator.fromScene(roomEnv).texture;
-  scene.environment = envMap;
-  roomEnv.dispose?.();
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
 
-  const ambientLight = new THREE.AmbientLight(0xffffff, 0.12);
-  scene.add(ambientLight);
+  document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right, .reveal-scale, .stagger-children, .star-pop').forEach(el => {
+    revealObserver.observe(el);
+  });
 
-  const keyLight = new THREE.DirectionalLight(0xffffff, 7.0);
-  keyLight.position.set(6, 7, 5);
-  keyLight.castShadow = true;
-  keyLight.shadow.mapSize.width = 1024;
-  keyLight.shadow.mapSize.height = 1024;
-  keyLight.shadow.camera.near = 0.3;
-  keyLight.shadow.camera.far = 40;
-  keyLight.shadow.camera.left = -6;
-  keyLight.shadow.camera.right = 6;
-  keyLight.shadow.camera.top = 5;
-  keyLight.shadow.camera.bottom = -3;
-  keyLight.shadow.bias = -0.00008;
-  keyLight.shadow.normalBias = 0.015;
-  scene.add(keyLight);
+  // ===== IMAGE REVEAL - RED OVERLAY SLIDES RIGHT =====
+  const imgRevealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+        imgRevealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
 
-  const fillLight = new THREE.DirectionalLight(0xffffff, 4.0);
-  fillLight.position.set(-5, 3, -4);
-  scene.add(fillLight);
+  document.querySelectorAll('.img-reveal').forEach(el => {
+    imgRevealObserver.observe(el);
+  });
 
-  const pointLight1 = new THREE.PointLight(0xffffff, 3.8, 12);
-  pointLight1.position.set(3.5, 2.2, 3);
-  scene.add(pointLight1);
+  // ===== GSAP SCROLL ANIMATIONS =====
 
-  const pointLight2 = new THREE.PointLight(0xffffff, 3.5, 12);
-  pointLight2.position.set(-3.8, 2.0, -3.2);
-  scene.add(pointLight2);
+  // Feature boxes
+  gsap.from('.feature-box', {
+    scrollTrigger: { trigger: '.feature-strip', start: 'top 85%', toggleActions: 'play none none none' },
+    y: 35, opacity: 0, duration: 0.7, stagger: 0.1, ease: 'power3.out'
+  });
 
-  const topLight = new THREE.PointLight(0xffffff, 3.0, 9);
-  topLight.position.set(0, 4.5, 0.5);
-  scene.add(topLight);
+  // About section image + text
+  gsap.from('.about-img-grid', {
+    scrollTrigger: { trigger: '.section-about', start: 'top 75%' },
+    x: -50, opacity: 0, duration: 1, ease: 'power3.out'
+  });
 
-  const dracoLoader = new DRACOLoader();
-  dracoLoader.setDecoderPath("https://www.gstatic.com/draco/versioned/decoders/1.5.6/");
-  const loader = new GLTFLoader();
-  loader.setDRACOLoader(dracoLoader);
+  // Stats counter
+  document.querySelectorAll('.stat-num').forEach(stat => {
+    const final = stat.textContent;
+    const num = parseFloat(final.match(/[\d.]+/));
+    if (num) {
+      gsap.from(stat, {
+        scrollTrigger: { trigger: stat, start: 'top 85%' },
+        textContent: 0, duration: 2, ease: 'power2.out',
+        snap: { textContent: 1 },
+        onUpdate: function() { stat.textContent = Math.round(this.targets()[0].textContent) + final.replace(/[\d.]+/, ''); },
+        onComplete: function() { stat.textContent = final; }
+      });
+    }
+  });
 
-  const modelUrl = "https://raw.githubusercontent.com/mrdoob/three.js/dev/examples/models/gltf/ferrari.glb";
+  // Service cards 3D tilt
+  document.querySelectorAll('.tilt-card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      card.style.transform = `perspective(1000px) rotateX(${y/25}deg) rotateY(${-x/25}deg) translateZ(10px)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    });
+  });
 
-  loader.load(
-    modelUrl,
-    (gltf) => {
-      const loadEl = document.getElementById("ferrari-loading");
-      if (loadEl) loadEl.style.display = "none";
+  // Testimonials
+  gsap.from('.testimonial-card', {
+    scrollTrigger: { trigger: '.section-testimonials', start: 'top 70%' },
+    y: 50, opacity: 0, duration: 0.9, stagger: 0.15, ease: 'power3.out'
+  });
 
-      const carModel = gltf.scene;
-      carModel.traverse((node) => {
-        if (node.isMesh) {
-          node.castShadow = true;
-          node.receiveShadow = true;
-          const material = node.material;
-          if (!material) return;
-          const name = node.name.toLowerCase();
-          const matName = material.name ? material.name.toLowerCase() : "";
-          const isGlass = name.includes("glass") || name.includes("windshield") || name.includes("window") || matName.includes("glass");
-          const isWheelOrTrim = name.includes("wheel") || name.includes("rim") || name.includes("tire") || name.includes("chrome") || matName.includes("chrome");
-          const isInterior = name.includes("interior") || name.includes("seat") || name.includes("dashboard") || name.includes("carpet") || name.includes("steering");
+  // Location
+  gsap.from('.section-location .col-lg-5 > *', {
+    scrollTrigger: { trigger: '.section-location', start: 'top 75%' },
+    x: -30, opacity: 0, duration: 0.8, stagger: 0.12, ease: 'power3.out'
+  });
+  gsap.from('.map-container', {
+    scrollTrigger: { trigger: '.section-location', start: 'top 75%' },
+    x: 50, opacity: 0, scale: 0.95, duration: 1, ease: 'power3.out'
+  });
 
-          if (!isGlass && !isWheelOrTrim && !isInterior && material.isMaterial) {
-            if (!material.isMeshPhysicalMaterial) {
-              const oldColor = material.color ? material.color.getHex() : 0xC4302B;
-              const newMat = new THREE.MeshPhysicalMaterial({
-                color: oldColor,
-                metalness: 0.3,
-                roughness: 0.02,
-                clearcoat: 1.0,
-                clearcoatRoughness: 0.01,
-                reflectivity: 1.0,
-                envMap: envMap,
-                envMapIntensity: 1.6,
-              });
-              node.material = newMat;
-            } else {
-              material.metalness = 0.3;
-              material.roughness = 0.02;
-              material.clearcoat = 1.0;
-              material.clearcoatRoughness = 0.01;
-              material.reflectivity = 1.0;
-              material.envMap = envMap;
-              material.envMapIntensity = 1.6;
-              material.needsUpdate = true;
-            }
-          } else if (isGlass && material.isMaterial) {
-            if (!material.isMeshPhysicalMaterial) {
-              const newGlass = new THREE.MeshPhysicalMaterial({
-                color: 0xeeeeee,
-                metalness: 0.1,
-                roughness: 0.01,
-                transmission: 0.88,
-                thickness: 0.8,
-                envMap: envMap,
-                envMapIntensity: 1.3,
-              });
-              node.material = newGlass;
-            } else {
-              material.transmission = 0.88;
-              material.roughness = 0.01;
-              material.metalness = 0.1;
-              material.envMap = envMap;
-              material.envMapIntensity = 1.3;
-              material.needsUpdate = true;
-            }
-          } else if (isWheelOrTrim && material.isMaterial) {
-            material.metalness = 1.0;
-            material.roughness = 0.015;
-            material.envMap = envMap;
-            material.envMapIntensity = 1.7;
-            if (material.color) material.color.set(0xeeeeee);
-            material.needsUpdate = true;
-          } else if (isInterior && material.isMaterial) {
-            material.color.set(0x080808);
-            material.roughness = 0.5;
-            material.metalness = 0.2;
-            material.envMap = envMap;
-            material.envMapIntensity = 0.5;
-            material.needsUpdate = true;
-          } else if (material.isMaterial) {
-            material.envMap = envMap;
-            material.envMapIntensity = 1.3;
-            material.needsUpdate = true;
+  // Quote form
+  gsap.from('.quote-form', {
+    scrollTrigger: { trigger: '.section-quote', start: 'top 70%' },
+    y: 40, opacity: 0, duration: 1, ease: 'power3.out'
+  });
+
+  // Footer
+  gsap.from('.site-footer .row > div', {
+    scrollTrigger: { trigger: '.site-footer', start: 'top 85%' },
+    y: 30, opacity: 0, duration: 0.7, stagger: 0.08, ease: 'power3.out'
+  });
+
+  // ===== PARTICLE SYSTEM =====
+  const hero = document.querySelector('.hero');
+  if (hero) {
+    const canvas = document.createElement('canvas');
+    canvas.id = 'particles-canvas';
+    hero.appendChild(canvas);
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+
+    function resize() {
+      canvas.width = hero.offsetWidth;
+      canvas.height = hero.offsetHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    for (let i = 0; i < 25; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        size: Math.random() * 2 + 0.5,
+        vx: (Math.random() - 0.5) * 0.3,
+        vy: (Math.random() - 0.5) * 0.3,
+        opacity: Math.random() * 0.4 + 0.1
+      });
+    }
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach((p, i) => {
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(232,57,47,${p.opacity})`;
+        ctx.fill();
+
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[j].x - p.x, dy = particles[j].y - p.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 140) {
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = `rgba(232,57,47,${0.08 * (1 - dist/140)})`;
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
           }
         }
       });
-      carModel.position.set(0, 0.05, 0);
-      scene.add(carModel);
-    },
-    (progress) => {
-      const loadEl = document.getElementById("ferrari-loading");
-      if (loadEl && progress.total) {
-        loadEl.textContent = "Loading 3D model… " + Math.round((progress.loaded / progress.total) * 100) + "%";
-      }
-    },
-    (err) => {
-      showFerrariError("Failed to load Ferrari model — " + (err && err.message ? err.message : "check your network/console"));
+      requestAnimationFrame(animateParticles);
     }
-  );
-
-  function animate() {
-    requestAnimationFrame(animate);
-    controls.update();
-    renderer.render(scene, camera);
+    animateParticles();
   }
-  animate();
 
-  window.addEventListener("resize", () => {
-    const w = container.clientWidth;
-    const h = container.clientHeight;
-    camera.aspect = w / h;
-    camera.updateProjectionMatrix();
-    renderer.setSize(w, h);
+  // ===== MAGNETIC BUTTONS =====
+  document.querySelectorAll('.btn-magnetic').forEach(btn => {
+    btn.addEventListener('mousemove', (e) => {
+      const rect = btn.getBoundingClientRect();
+      btn.style.transform = `translate(${(e.clientX - rect.left - rect.width/2) * 0.12}px, ${(e.clientY - rect.top - rect.height/2) * 0.12}px)`;
+    });
+    btn.addEventListener('mouseleave', () => {
+      btn.style.transform = '';
+    });
   });
-} catch (e) {
-  showFerrariError(e.message || String(e));
-}
+
+  // ===== FORM SUBMIT =====
+  const quoteForm = document.querySelector('.quote-form');
+  if (quoteForm) {
+    quoteForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const btn = quoteForm.querySelector('button[type="submit"]');
+      const original = btn.innerHTML;
+      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
+      btn.disabled = true;
+      setTimeout(() => {
+        btn.innerHTML = '<i class="fa-solid fa-check"></i> Sent!';
+        btn.style.background = '#28a745';
+        setTimeout(() => {
+          btn.innerHTML = original;
+          btn.style.background = '';
+          btn.disabled = false;
+          quoteForm.reset();
+        }, 2000);
+      }, 1500);
+    });
+  }
+
+  // ===== MOBILE MENU STAGGER =====
+  const toggler = document.querySelector('.navbar-toggler');
+  if (toggler) {
+    toggler.addEventListener('click', () => {
+      if (toggler.getAttribute('aria-expanded') !== 'true') {
+        gsap.from('#navMenu .nav-item', { x: -20, opacity: 0, duration: 0.3, stagger: 0.06, ease: 'power3.out', delay: 0.1 });
+      }
+    });
+  }
+
+  console.log('✅ Animation Engine Loaded');
+});
 </script>
 
 </body>
-</html>
