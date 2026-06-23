@@ -4,12 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>In The Grooves Car Detailing | Car Detailing Services</title>
-
   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
   <style>
     :root{
       --bg-dark:      #121212;
@@ -37,7 +35,20 @@
     .btn-outline-cta{background:transparent;border:1px solid var(--border-soft);color:var(--white);font-weight:600;padding:.8rem 1.8rem;border-radius:6px;text-transform:uppercase;font-size:.85rem;letter-spacing:.5px;transition:.25s;}
     .btn-outline-cta:hover{background:rgba(255,255,255,0.08);color:var(--white);}
 
-    .main-nav{background:var(--bg-dark);padding:1rem 0;border-bottom:1px solid var(--border-soft);transition:background .35s ease, padding .35s ease, box-shadow .35s ease;}
+    .main-nav {
+      background: transparent !important;
+      padding: 1rem 0;
+      transition: background .35s ease, padding .35s ease, box-shadow .35s ease;
+      border-bottom: 1px solid transparent;
+    }
+    .main-nav.nav-scrolled {
+      background: rgba(18, 18, 18, 0.95) !important;
+      backdrop-filter: blur(20px) !important;
+      -webkit-backdrop-filter: blur(20px) !important;
+      box-shadow: 0 4px 30px rgba(0,0,0,0.3) !important;
+      padding: 0.6rem 0 !important;
+      border-bottom: 1px solid var(--border-soft);
+    }
     .main-nav .container{
       display:flex !important;
       align-items:center;
@@ -78,14 +89,14 @@
       transition:.2s;
       padding:5px 10px;
       border-radius:6px;
-      border:1px solid var(--border-soft);
+      border:1px solid rgba(255,255,255,0.15);
       flex-shrink:0;
     }
     .header-phone:hover{border-color:var(--red);color:var(--red);}
     .header-phone i{color:var(--red);font-size:1rem;}
     .header-phone .phone-number{display:inline;}
     .header-right .btn-cta{padding:.5rem 1.2rem;font-size:.75rem;flex-shrink:0;}
-    .navbar-toggler{border:1px solid var(--border-soft);padding:6px 10px;}
+    .navbar-toggler{border:1px solid rgba(255,255,255,0.2);padding:6px 10px;}
     .navbar-toggler:hover{border-color:var(--red);}
     .navbar-toggler-icon{
       background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255,255,255,0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
@@ -157,35 +168,6 @@
       text-align:center;
       line-height:1.2;
     }
-
-    /* FEATURE STRIP */
-    .feature-strip{
-      background:var(--bg-darker);
-      padding:1.4rem 0;
-      margin:0;
-    }
-    .feature-strip .row{margin:0;}
-    .feature-strip .col-md-3{padding:.5rem 1rem;}
-    .feature-box{
-      background:transparent;
-      padding:0;
-      height:100%;
-      border-right:1px solid rgba(255,255,255,.12);
-      transition:.25s;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      text-align:center;
-      gap:8px;
-    }
-    .feature-box:last-child{border-right:none;}
-    .feature-box i{font-size:1.6rem;color:var(--red);flex-shrink:0;}
-    .feature-box h6{font-size:.85rem;margin:0;color:var(--white);letter-spacing:.5px;}
-    .feature-box p{color:var(--text-muted);font-size:.72rem;line-height:1.4;margin:0;}
-    .feature-box .feature-text{display:flex;flex-direction:column;align-items:center;}
-    .feature-box.active-box{background:transparent;}
-    .feature-box.active-box i,.feature-box.active-box h6{color:var(--red);}
-    .feature-box.active-box p{color:var(--text-muted);}
 
     /* ABOUT SECTION */
     .section-about{
@@ -295,13 +277,6 @@
       .stat-label{font-size:.6rem;}
       .stat-item{border-right:none;margin-bottom:.5rem;}
       .stat-item:last-child{margin-bottom:0;}
-      .feature-strip{padding:1rem 0;}
-      .feature-strip .row{row-gap:1.2rem;}
-      .feature-box{padding:.2rem 0;border-right:1px solid rgba(255,255,255,.12);}
-      .feature-box i{font-size:1.3rem;}
-      .feature-box h6{font-size:.68rem;white-space:normal;line-height:1.2;}
-      .feature-box p{font-size:.6rem;white-space:normal;line-height:1.3;}
-      .feature-strip .col-6:nth-child(even) .feature-box{border-right:none;}
       .about-img-grid{grid-template-columns:1fr;}
       .about-img-grid img{height:240px;}
       .section-about{padding:3rem 0 4rem 0;}
@@ -310,20 +285,15 @@
     a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--red);outline-offset:2px;}
     @media (prefers-reduced-motion: reduce){*{transition:none !important;}}
 
-    /* ZERO GAPS BETWEEN ALL SECTIONS */
     section, header, .stats-bar, .feature-strip, .section-about, .section-services-pricing, .section-testimonials, .section-location, .section-quote {
       margin-top: 0 !important;
       margin-bottom: 0 !important;
     }
 
-    /* ANIMATIONS */
     html{scroll-behavior:smooth;}
     ::-webkit-scrollbar{width:6px;}
     ::-webkit-scrollbar-track{background:#0d0d0d;}
     ::-webkit-scrollbar-thumb{background:#e8392f;border-radius:3px;}
-
-    .main-nav{background:rgba(18,18,18,0.0) !important;border-bottom:1px solid transparent;}
-    .main-nav:not(.nav-scrolled){background:linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0)) !important;}
 
     .img-reveal{position:relative;overflow:hidden;display:block;}
     .img-reveal::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:#e8392f;z-index:5;transform:translateX(0);transition:transform 1.2s cubic-bezier(0.77,0,0.175,1);}
@@ -361,7 +331,6 @@
     .footer-link-hover{position:relative;display:inline-block;}
     .footer-link-hover::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:1px;background:#e8392f;transition:width 0.3s ease;}
     .footer-link-hover:hover::after{width:100%;}
-    .nav-scrolled{background:rgba(18,18,18,0.95) !important;backdrop-filter:blur(20px) !important;-webkit-backdrop-filter:blur(20px) !important;box-shadow:0 4px 30px rgba(0,0,0,0.3) !important;padding:0.6rem 0 !important;}
     .nav-underline{position:relative;}
     .nav-underline::after{content:'';position:absolute;bottom:-2px;left:50%;width:0;height:2px;background:#e8392f;transition:width 0.3s cubic-bezier(0.16,1,0.3,1), left 0.3s cubic-bezier(0.16,1,0.3,1);}
     .nav-underline:hover::after,.nav-underline.active::after{width:100%;left:0;}
@@ -404,13 +373,17 @@
   <div class="loader-text">IN THE GROOVES CAR DETAILING</div>
 </div>
 
-<nav class="navbar navbar-expand-lg navbar-dark main-nav sticky-top">
+<nav class="navbar navbar-expand-lg navbar-dark main-nav sticky-top" id="mainNav">
   <div class="container">
     <a class="navbar-brand logo" href="#home">IN THE GROOVES<span>CAR DETAILING</span></a>
     <div class="header-right">
       <a href="tel:+12707340619" class="header-phone">
         <i class="fa-solid fa-phone"></i>
         <span class="phone-number">+1 270-734-0619</span>
+      </a>
+      <a href="https://web.facebook.com/profile.php?id=61580587135921" target="_blank" rel="noopener noreferrer" class="header-phone" aria-label="Facebook">
+        <i class="fa-brands fa-facebook-f"></i>
+        <span class="phone-number">Facebook</span>
       </a>
       <a href="#quote" class="btn btn-cta btn-magnetic btn-ripple">Get a Quote</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
@@ -720,8 +693,19 @@ document.addEventListener('DOMContentLoaded', function() {
   progressBar.className = 'scroll-progress';
   document.body.appendChild(progressBar);
   window.addEventListener('scroll', () => { const scrollTop = window.pageYOffset; const docHeight = document.documentElement.scrollHeight - window.innerHeight; progressBar.style.width = (scrollTop / docHeight * 100) + '%'; }, { passive: true });
+  
   const navbar = document.querySelector('.main-nav');
-  window.addEventListener('scroll', () => navbar.classList.toggle('nav-scrolled', window.pageYOffset > 50), { passive: true });
+  const hero = document.querySelector('.hero');
+  const heroHeight = hero ? hero.offsetHeight : 100;
+  
+  window.addEventListener('scroll', () => {
+    if (window.pageYOffset > heroHeight * 0.5) {
+      navbar.classList.add('nav-scrolled');
+    } else {
+      navbar.classList.remove('nav-scrolled');
+    }
+  }, { passive: true });
+  
   const sections = document.querySelectorAll('section[id], header[id]');
   const navLinks = document.querySelectorAll('.nav-link');
   window.addEventListener('scroll', () => { let current = ''; sections.forEach(s => { if (window.pageYOffset >= s.offsetTop - 100) current = s.getAttribute('id'); }); navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + current)); }, { passive: true });
@@ -740,7 +724,7 @@ document.addEventListener('DOMContentLoaded', function() {
   gsap.from('.map-container', { scrollTrigger: { trigger: '.section-location', start: 'top 75%' }, x: 50, opacity: 0, scale: 0.95, duration: 1, ease: 'power3.out' });
   gsap.from('.quote-form', { scrollTrigger: { trigger: '.section-quote', start: 'top 70%' }, y: 40, opacity: 0, duration: 1, ease: 'power3.out' });
   gsap.from('.site-footer .row > div', { scrollTrigger: { trigger: '.site-footer', start: 'top 85%' }, y: 30, opacity: 0, duration: 0.7, stagger: 0.08, ease: 'power3.out' });
-  const hero = document.querySelector('.hero');
+  
   if (hero) { const canvas = document.createElement('canvas'); canvas.id = 'particles-canvas'; hero.appendChild(canvas); const ctx = canvas.getContext('2d'); let particles = []; function resize() { canvas.width = hero.offsetWidth; canvas.height = hero.offsetHeight; } resize(); window.addEventListener('resize', resize); for (let i = 0; i < 25; i++) particles.push({ x: Math.random() * canvas.width, y: Math.random() * canvas.height, size: Math.random() * 2 + 0.5, vx: (Math.random() - 0.5) * 0.3, vy: (Math.random() - 0.5) * 0.3, opacity: Math.random() * 0.4 + 0.1 }); function animateParticles() { ctx.clearRect(0, 0, canvas.width, canvas.height); particles.forEach((p, i) => { p.x += p.vx; p.y += p.vy; if (p.x < 0 || p.x > canvas.width) p.vx *= -1; if (p.y < 0 || p.y > canvas.height) p.vy *= -1; ctx.beginPath(); ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2); ctx.fillStyle = `rgba(232,57,47,${p.opacity})`; ctx.fill(); for (let j = i + 1; j < particles.length; j++) { const dx = particles[j].x - p.x, dy = particles[j].y - p.y, dist = Math.sqrt(dx * dx + dy * dy); if (dist < 140) { ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(particles[j].x, particles[j].y); ctx.strokeStyle = `rgba(232,57,47,${0.08 * (1 - dist/140)})`; ctx.lineWidth = 0.5; ctx.stroke(); } } }); requestAnimationFrame(animateParticles); } animateParticles(); }
   document.querySelectorAll('.btn-magnetic').forEach(btn => { btn.addEventListener('mousemove', (e) => { const rect = btn.getBoundingClientRect(); btn.style.transform = `translate(${(e.clientX - rect.left - rect.width/2) * 0.12}px, ${(e.clientY - rect.top - rect.height/2) * 0.12}px)`; }); btn.addEventListener('mouseleave', () => btn.style.transform = ''); });
   const quoteForm = document.querySelector('.quote-form');
