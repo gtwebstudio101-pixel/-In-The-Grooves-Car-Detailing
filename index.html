@@ -37,7 +37,7 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-display);color:var(--white);text-transf
 .btn-outline-cta{background:transparent;border:1px solid var(--border-soft);color:var(--white);font-weight:600;padding:.8rem 1.8rem;border-radius:6px;text-transform:uppercase;font-size:.85rem;letter-spacing:.5px;transition:.25s;}
 .btn-outline-cta:hover{background:rgba(255,255,255,0.08);color:var(--white);}
 
-.main-nav{background:var(--bg-dark);padding:1rem 0;border-bottom:1px solid var(--border-soft);}
+.main-nav{background:var(--bg-dark);padding:1rem 0;border-bottom:1px solid var(--border-soft);transition:background .35s ease, padding .35s ease, box-shadow .35s ease;}
 .logo{
   font-family:var(--font-display);
   font-weight:800;
@@ -45,9 +45,11 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-display);color:var(--white);text-transf
   color:var(--white);
   text-transform:uppercase;
   letter-spacing:1px;
-  white-space:nowrap;
+  white-space:normal;
+  line-height:1.15;
+  max-width:160px;
 }
-.logo span{color:var(--red);}
+.logo span{color:var(--red);display:block;font-size:.65em;}
 .nav-link{color:var(--text-light) !important;font-weight:600;font-size:.85rem;padding:.5rem .8rem !important;text-transform:capitalize;transition:.2s;}
 .nav-link:hover,.nav-link.active{color:var(--red) !important;}
 
@@ -115,7 +117,8 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-display);color:var(--white);text-transf
     display:none !important;
   }
   .logo{
-    font-size:1.2rem;
+    font-size:1rem;
+    max-width:130px;
   }
 }
 
@@ -200,28 +203,31 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-display);color:var(--white);text-transf
 .feature-box.active-box p{color:rgba(255,255,255,.85);}
 
 @media (max-width:767px){
+  .feature-strip{padding:0;}
+  .feature-strip .row{display:flex;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory;}
+  .feature-strip .row::-webkit-scrollbar{display:none;}
+  .feature-strip .col-md-3.col-6{flex:0 0 78%;max-width:78%;scroll-snap-align:start;}
   .feature-box{
-    padding:.7rem .8rem;
-    min-height:60px;
-    border-right:none;
-    border-bottom:1px solid var(--border-soft);
+    padding:.9rem 1rem;
+    min-height:88px;
+    height:100%;
+    border-right:1px solid var(--border-soft);
+    border-bottom:none;
+    align-items:flex-start;
   }
   .feature-box i{
     font-size:1.2rem;
     width:24px;
+    margin-top:2px;
   }
   .feature-box h6{
-    font-size:.75rem;
+    font-size:.8rem;
+    white-space:normal;
   }
   .feature-box p{
-    font-size:.65rem;
-  }
-  .feature-strip .col-6:nth-child(odd) .feature-box{
-    border-right:1px solid var(--border-soft);
-  }
-  .feature-strip .col-6:nth-child(3) .feature-box,
-  .feature-strip .col-6:nth-child(4) .feature-box{
-    border-bottom:none;
+    font-size:.7rem;
+    white-space:normal;
+    overflow:visible;
   }
 }
 
@@ -306,6 +312,51 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-display);color:var(--white);text-transf
 .quote-icon{color:var(--border-soft);font-size:1.6rem;}
 .testimonial-card p{color:var(--text-light);font-size:.92rem;line-height:1.7;margin:1.2rem 0 0;}
 .reviewer-avatar{width:46px;height:46px;border-radius:50%;object-fit:cover;}
+
+/* Mobile horizontal scroll for testimonials */
+@media (max-width:767px){
+  .testimonials-track{
+    display:flex;
+    flex-wrap:nowrap;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    scroll-snap-type:x mandatory;
+    gap:1rem;
+    padding-bottom:.5rem;
+    margin:0 -0.75rem;
+    padding-left:0.75rem;
+    padding-right:0.75rem;
+  }
+  .testimonials-track::-webkit-scrollbar{display:none;}
+  .testimonials-track .testimonial-col{
+    flex:0 0 86%;
+    max-width:86%;
+    scroll-snap-align:center;
+  }
+  .scroll-dots{
+    display:flex;
+    justify-content:center;
+    gap:8px;
+    margin-top:1.25rem;
+  }
+  .scroll-dots .dot{
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:var(--border-soft);
+    border:1px dotted rgba(255,255,255,.25);
+    transition:.25s;
+  }
+  .scroll-dots .dot.active{
+    background:var(--red);
+    border-color:var(--red);
+    width:20px;
+    border-radius:4px;
+  }
+}
+@media (min-width:768px){
+  .scroll-dots{display:none;}
+}
 
 .section-location{
   padding:5rem 0;
@@ -427,6 +478,15 @@ html { scroll-behavior: smooth; }
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: #0d0d0d; }
 ::-webkit-scrollbar-thumb { background: #e8392f; border-radius: 3px; }
+
+/* ===== TRANSPARENT HEADER ===== */
+.main-nav{
+  background: rgba(18,18,18,0.0) !important;
+  border-bottom: 1px solid transparent;
+}
+.main-nav:not(.nav-scrolled){
+  background: linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0)) !important;
+}
 
 /* ===== IMAGE REVEAL - RED OVERLAY SLIDES RIGHT ===== */
 .img-reveal {
@@ -710,6 +770,8 @@ html { scroll-behavior: smooth; }
   color: #fff;
   letter-spacing: 3px;
   text-transform: uppercase;
+  text-align: center;
+  padding: 0 1.5rem;
 }
 
 /* ===== SCROLL INDICATOR ===== */
@@ -817,13 +879,13 @@ html { scroll-behavior: smooth; }
 <!-- LOADING SCREEN -->
 <div class="loading-screen">
   <div class="loader-ring"></div>
-  <div class="loader-text">In The Grooves</div>
+  <div class="loader-text">IN THE GROOVES CAR DETAILING</div>
 </div>
 
 
 <nav class="navbar navbar-expand-lg navbar-dark main-nav sticky-top">
   <div class="container">
-    <a class="navbar-brand logo" href="#home">In The Grooves<span> Car Detailing</span></a>
+    <a class="navbar-brand logo" href="#home">IN THE GROOVES<span>CAR DETAILING</span></a>
     
     <!-- HEADER RIGHT - ALWAYS VISIBLE (Phone + Get a Quote + Hamburger) -->
     <div class="header-right">
@@ -1061,8 +1123,8 @@ html { scroll-behavior: smooth; }
         </div>
       </div>
     </div>
-    <div class="row g-4">
-      <div class="col-md-4">
+    <div class="row g-4 testimonials-track">
+      <div class="col-md-4 testimonial-col">
         <div class="testimonial-card">
           <div class="d-flex justify-content-between">
             <div class="stars star-pop"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
@@ -1075,7 +1137,7 @@ html { scroll-behavior: smooth; }
           </div>
         </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-4 testimonial-col">
         <div class="testimonial-card">
           <div class="d-flex justify-content-between">
             <div class="stars star-pop"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
@@ -1088,7 +1150,7 @@ html { scroll-behavior: smooth; }
           </div>
         </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-4 testimonial-col">
         <div class="testimonial-card">
           <div class="d-flex justify-content-between">
             <div class="stars star-pop"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
@@ -1101,6 +1163,53 @@ html { scroll-behavior: smooth; }
           </div>
         </div>
       </div>
+      <div class="col-md-4 testimonial-col">
+        <div class="testimonial-card">
+          <div class="d-flex justify-content-between">
+            <div class="stars star-pop"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+            <i class="fa-solid fa-quote-right quote-icon"></i>
+          </div>
+          <p>"Booked the full package before a big client meeting and the car looked showroom new. Worth every penny."</p>
+          <div class="d-flex align-items-center gap-3 mt-3">
+            <img src="https://randomuser.me/api/portraits/men/41.jpg" class="reviewer-avatar" alt="">
+            <div><strong>David Chen</strong><div class="text-muted small">Real Estate Agent</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 testimonial-col">
+        <div class="testimonial-card">
+          <div class="d-flex justify-content-between">
+            <div class="stars star-pop"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+            <i class="fa-solid fa-quote-right quote-icon"></i>
+          </div>
+          <p>"They come right to your driveway, which makes life so much easier. Friendly team, fair pricing, great results."</p>
+          <div class="d-flex align-items-center gap-3 mt-3">
+            <img src="https://randomuser.me/api/portraits/women/53.jpg" class="reviewer-avatar" alt="">
+            <div><strong>Laura Bennett</strong><div class="text-muted small">Homeowner</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 testimonial-col">
+        <div class="testimonial-card">
+          <div class="d-flex justify-content-between">
+            <div class="stars star-pop"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+            <i class="fa-solid fa-quote-right quote-icon"></i>
+          </div>
+          <p>"Our delivery vans needed serious work and they handled the whole fleet in one weekend. Highly recommend."</p>
+          <div class="d-flex align-items-center gap-3 mt-3">
+            <img src="https://randomuser.me/api/portraits/men/76.jpg" class="reviewer-avatar" alt="">
+            <div><strong>James Whitfield</strong><div class="text-muted small">Logistics Manager</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-dots" id="testimonialDots">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
     </div>
   </div>
 </section>
@@ -1505,8 +1614,19 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
+  // ===== TESTIMONIALS MOBILE DOTS SYNC =====
+  const track = document.querySelector('.testimonials-track');
+  const dots = document.querySelectorAll('#testimonialDots .dot');
+  if (track && dots.length) {
+    track.addEventListener('scroll', () => {
+      const cardWidth = track.querySelector('.testimonial-col').offsetWidth + 16;
+      const index = Math.round(track.scrollLeft / cardWidth);
+      dots.forEach((d, i) => d.classList.toggle('active', i === index));
+    }, { passive: true });
+  }
+
   console.log('✅ Animation Engine Loaded');
 });
 </script>
 
-</body>
+</body></html>
